@@ -1,0 +1,10 @@
+FROM python:3
+
+WORKDIR /tmp/tests/
+
+COPY ./tests/requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY ./tests/ ./
+
+CMD ["pytest", "test_login_my.py" ]
