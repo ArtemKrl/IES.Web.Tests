@@ -6,10 +6,10 @@ services:
     ports:
       - "4444:4444"
     volumes:
-      - "$AGENTDIR/config:/etc/selenoid" # assumed current dir contains browsers.json
+      - "$PWD/config:/etc/selenoid" # assumed current dir contains browsers.json
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "$AGENTDIR/video:/opt/selenoid/video"
-      - "$AGENTDIR/logs:/opt/selenoid/logs"
+      - "$PWD/video:/opt/selenoid/video"
+      - "$PWD/logs:/opt/selenoid/logs"
     environment:
       - OVERRIDE_VIDEO_OUTPUT_DIR=$PWD/video
     links:
