@@ -24,8 +24,8 @@ services:
       - "8080:8080"
     command: ["--selenoid-uri", "http://selenoid:4444"]
   ies-test:
-    image: "vitacore/ies:latest"
-    #image: "bakirovaasia/ies:test"
+    #image: "vitacore/ies:latest"
+    image: $IESIMAGE
     network_mode: bridge
     ports:
       - "80:80"
