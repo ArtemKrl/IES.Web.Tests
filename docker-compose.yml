@@ -6,12 +6,12 @@ services:
     ports:
       - "4444:4444"
     volumes:
-      - "$AGENTDIR/config:/etc/selenoid" # assumed current dir contains browsers.json
+      - "$CONFIGDIR/config:/etc/selenoid" # assumed current dir contains browsers.json
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "$AGENTDIR/video:/opt/selenoid/video"
-      - "$AGENTDIR/logs:/opt/selenoid/logs"
+      - "$CONFIGDIR/video:/opt/selenoid/video"
+      - "$CONFIGDIR/logs:/opt/selenoid/logs"
     environment:
-      - OVERRIDE_VIDEO_OUTPUT_DIR=$AGENTDIR/video
+      - OVERRIDE_VIDEO_OUTPUT_DIR=$CONFIGDIR/video
     links:
       - ies-test
     command: ["-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs"]
@@ -25,7 +25,7 @@ services:
     command: ["--selenoid-uri", "http://selenoid:4444"]
   ies-test:
     #image: "vitacore/ies:latest"
-    image: $IESIMAGE
+    image: $IMAGE
     network_mode: bridge
     ports:
       - "80:80"
