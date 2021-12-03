@@ -18,7 +18,7 @@ def driver(request):
     yield fox_driver
 
 
-def test_login_site(driver: WebDriver):
+def test_login_site(driver):
 
     login_site(driver)
 
