@@ -1,4 +1,4 @@
-from POM_MEDEXP.Pages.BasePage import BasePage
+from Pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
 
 

@@ -1,12 +1,12 @@
 import pytest
 from selenium.webdriver.common.by import By
 import time
-from tests.config import selenoid_URL
+from Config.config import selenoid_URL
 from selenium import webdriver
-from tests.capabilities import capabilities
+from Config.capabilities import capabilities
 import pytest
-from POM_MEDEXP.Config.config import TestData
-from POM_MEDEXP.Pages.BasePage import BasePage
+from Config.config import TestData
+from Pages.BasePage import BasePage
 
 
 class LoginPage(BasePage):
