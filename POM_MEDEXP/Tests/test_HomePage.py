@@ -1,5 +1,5 @@
-from POM_MEDEXP.Pages.LoginPage import LoginPage
-from POM_MEDEXP.Tests.test_base import BaseTest
+from Pages.LoginPage import LoginPage
+from Tests.test_base import BaseTest
 
 
 class Test_Home(BaseTest):

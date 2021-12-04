@@ -4,7 +4,7 @@ import pytest
 from Config.config import TestData
 from Pages.LoginPage import LoginPage
 from Tests.test_base import BaseTest
-from POM_MEDEXP.Tests.conftest import init_driver
+from Tests.conftest import init_driver
 
 class Test_Login(BaseTest):
 

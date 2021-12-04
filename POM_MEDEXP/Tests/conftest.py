@@ -3,8 +3,8 @@ from selenium import webdriver
 from POM_MEDEXP.Config.config import TestData
 from selenium.webdriver.chrome.webdriver import WebDriver
 
-from POM_MEDEXP.Config.capabilities import capabilities
-from POM_MEDEXP.Config.config import selenoid_URL
+from Config.capabilities import capabilities
+from Config.config import selenoid_URL
 
 
 @pytest.fixture(params=["chrome"], scope='class')
