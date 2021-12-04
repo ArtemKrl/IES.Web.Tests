@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from POM_MEDEXP.Config.config import TestData
+from Config.config import TestData
 from selenium.webdriver.chrome.webdriver import WebDriver
 
 from Config.capabilities import capabilities
