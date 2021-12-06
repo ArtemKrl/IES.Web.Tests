@@ -1,4 +1,4 @@
-from Pages.BasePage import BasePage
+from POM_MEDEXP.Pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
 
 
@@ -12,9 +12,6 @@ class HomePage(BasePage):
 
     def __init__(self, driver):
         self().__init__(driver)
-
-    def get_home_page_title(self, title):
-        return self.get_title(self)
 
     def is_vitacore_logo_exist(self):
         return self.is_visible(self.VITACORE_LOGO)

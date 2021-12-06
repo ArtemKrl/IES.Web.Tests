@@ -12,3 +12,4 @@ class TestData:
     PASSWORD = "1"
 
     LOGIN_PAGE_TITLE = 'Медэксперт'
+    HOME_PAGE_TITLE = 'Медэксперт'

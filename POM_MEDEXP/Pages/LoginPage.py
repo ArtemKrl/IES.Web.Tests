@@ -1,12 +1,12 @@
 import pytest
 from selenium.webdriver.common.by import By
 import time
-from Config.config import selenoid_URL
+from POM_MEDEXP.Config.config import selenoid_URL
 from selenium import webdriver
-from Config.capabilities import capabilities
+from POM_MEDEXP.Config.capabilities import capabilities
 import pytest
-from Config.config import TestData
-from Pages.BasePage import BasePage
+from POM_MEDEXP.Config.config import TestData
+from POM_MEDEXP.Pages.BasePage import BasePage
 
 
 class LoginPage(BasePage):
@@ -14,12 +14,14 @@ class LoginPage(BasePage):
     PASSWORD = (By.CSS_SELECTOR, "#normal_login_password")
     LOGIN_BUTTON = (By.CSS_SELECTOR, "button")
     SIGNUP_LINK = (By.CSS_SELECTOR, "button > span")
+    VITACORE_LOGO = (By.CSS_SELECTOR, ".NavRail_logo__2mva4 > svg")
 
     """Конструктор класса страницы"""
 
     def __init__(self, driver):
         super().__init__(driver)
         self.driver.get(TestData.BASE_URL)
+
     """Действия на странице входа"""
 
     """это используется для получения заголовка страницы"""
@@ -28,7 +30,10 @@ class LoginPage(BasePage):
         return self.get_title(title)
 
     def is_signup_link_exist(self):
-        return self.is_visible(self.SIGNUP_LINK)
+        return self.is_clickable(self.SIGNUP_LINK)
+
+    def is_vitacore_logo_exist(self):
+        return self.is_visible(self.VITACORE_LOGO)
 
     """это используется для входа в аккаунт"""
 
@@ -36,3 +41,4 @@ class LoginPage(BasePage):
         self.do_send_keys(self.EMAIL, username)
         self.do_send_keys(self.PASSWORD, password)
         self.do_click(self.LOGIN_BUTTON)
+        # return HomePage(self.driver)
