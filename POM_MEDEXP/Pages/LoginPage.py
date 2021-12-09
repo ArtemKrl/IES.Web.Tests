@@ -7,6 +7,7 @@ from POM_MEDEXP.Config.capabilities import capabilities
 import pytest
 from POM_MEDEXP.Config.config import TestData
 from POM_MEDEXP.Pages.BasePage import BasePage
+from POM_MEDEXP.Pages.HomePage import HomePage
 
 
 class LoginPage(BasePage):
@@ -41,4 +42,4 @@ class LoginPage(BasePage):
         self.do_send_keys(self.EMAIL, username)
         self.do_send_keys(self.PASSWORD, password)
         self.do_click(self.LOGIN_BUTTON)
-        # return HomePage(self.driver)
+        return HomePage(self.driver)

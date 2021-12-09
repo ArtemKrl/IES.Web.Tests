@@ -13,3 +13,4 @@ class TestData:
 
     LOGIN_PAGE_TITLE = 'Медэксперт'
     HOME_PAGE_TITLE = 'Медэксперт'
+    DFS_TEXT = "Общий отбор №2 от 02.11.2021"
