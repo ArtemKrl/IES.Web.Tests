@@ -11,6 +11,10 @@ class TestData:
     USER_NAME = "1"
     PASSWORD = "1"
 
+    EXAMPLE_NUM_GOOD = "134.2"
+    EXAMPLE_NUM_BAD = "666.66"
+
     LOGIN_PAGE_TITLE = 'Медэксперт'
     HOME_PAGE_TITLE = 'Медэксперт'
-    DFS_TEXT = "Общий отбор №2 от 02.11.2021"
+    DFS_TEXT = "Пояснения:"
+    ERROR_TEXT = "Длина текста больше 5 символов"

@@ -5,6 +5,7 @@ from POM_MEDEXP.Config.config import selenoid_URL
 from selenium import webdriver
 from POM_MEDEXP.Config.capabilities import capabilities
 import pytest
+from POM_MEDEXP.Pages.DataFormPage import FormPage
 from POM_MEDEXP.Config.config import TestData
 from POM_MEDEXP.Pages.BasePage import BasePage
 from POM_MEDEXP.Pages.HomePage import HomePage
@@ -23,9 +24,6 @@ class LoginPage(BasePage):
         super().__init__(driver)
         self.driver.get(TestData.BASE_URL)
 
-    """Действия на странице входа"""
-
-    """это используется для получения заголовка страницы"""
 
     def get_login_page_title(self, title):
         return self.get_title(title)

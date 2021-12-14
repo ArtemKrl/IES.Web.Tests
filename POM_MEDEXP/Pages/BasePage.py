@@ -17,6 +17,9 @@ class BasePage:
     def do_send_keys(self, by_locator, text):
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
 
+    def do_clear_area(self, by_locator):
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).clear()
+
     def get_element_text(self, by_locator):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         return element.text

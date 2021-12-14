@@ -18,6 +18,7 @@ class Test_Home(BaseTest):
         homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
         homePage.elect_DFS()
         page = homePage.DFS_page_is_open(TestData.DFS_TEXT)
+        print(page)
         assert page == TestData.DFS_TEXT
 
 
