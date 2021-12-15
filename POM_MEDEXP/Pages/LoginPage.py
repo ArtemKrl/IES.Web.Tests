@@ -23,6 +23,8 @@ class LoginPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         self.driver.get(TestData.BASE_URL)
+        self.driver.fullscreen_window()
+
 
 
     def get_login_page_title(self, title):
@@ -37,6 +39,7 @@ class LoginPage(BasePage):
     """это используется для входа в аккаунт"""
 
     def do_login(self, username, password):
+        self.driver.fullscreen_window()
         self.do_send_keys(self.EMAIL, username)
         self.do_send_keys(self.PASSWORD, password)
         self.do_click(self.LOGIN_BUTTON)

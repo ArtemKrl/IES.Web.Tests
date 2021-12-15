@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -24,6 +26,11 @@ class BasePage:
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         return element.text
 
+    # def get_element_value(self, by_locator):
+    #     element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).get_attribute('value')
+    #     return element.driver
+
+    # driver.find_element_by_css_selector('.ant-input-number-input-wrap > input').get_attribute('value')
     def is_clickable(self, by_locator):
         element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(by_locator))
         return bool(element)

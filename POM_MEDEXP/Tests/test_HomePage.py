@@ -1,3 +1,5 @@
+import time
+
 from POM_MEDEXP.Pages.LoginPage import LoginPage
 from POM_MEDEXP.Tests.test_base import BaseTest
 
@@ -15,10 +17,10 @@ class Test_Home(BaseTest):
 
     def test_follow_to_DFS(self):
         self.loginPage = LoginPage(self.driver)
-        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-        homePage.elect_DFS()
-        page = homePage.DFS_page_is_open(TestData.DFS_TEXT)
-        print(page)
+        self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        self.homePage = HomePage(self.driver)
+        self.homePage.elect_DFS()
+        page = self.homePage.DFS_page_is_open(TestData.DFS_TEXT)
         assert page == TestData.DFS_TEXT
 
 

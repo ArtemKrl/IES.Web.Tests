@@ -18,10 +18,15 @@ class FormPage(BasePage):
     TEXT_FORM = (By.CSS_SELECTOR, "textarea")
     EMPTY_AREA = (By.CSS_SELECTOR, "div:nth-child(7)")
     ERROR_MESSAGE = (By.CSS_SELECTOR, ".ant-form-item-explain-error > div")
+    ARROW_UP = (By.CSS_SELECTOR, ".anticon-up > svg:nth-child(1)")
+    ARROW_DOWN = (By.CSS_SELECTOR, ".ant-input-number-handler-down")
+    VIEW_ARROW_COUNT = (By.CSS_SELECTOR, ".ant-input-number-input-wrap")
 
 
     def __init__(self, driver):
         super().__init__(driver)
+        self.driver.fullscreen_window()
+
 
 
 
@@ -50,6 +55,15 @@ class FormPage(BasePage):
 
     def check_error_message(self, text):
         return self.get_element_text(self.ERROR_MESSAGE)
+
+    def click_arrow_up(self):
+        self.do_click(self.ARROW_UP)
+
+    def view_arrow_count(self, text):
+        self.get_element_value(self.VIEW_ARROW_COUNT)
+
+    def click_arrow_down(self):
+        self.do_click(self.ARROW_DOWN)
 
 
 

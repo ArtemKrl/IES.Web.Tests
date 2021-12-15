@@ -29,6 +29,7 @@ class Test_DataForm(BaseTest):
         proof = formPage.check_flag_checkbox()
         assert proof
 
+
     def test_vc_TextBox_good(self):
         self.loginPage = LoginPage(self.driver)
         self.homePage = HomePage(self.driver)
@@ -46,4 +47,20 @@ class Test_DataForm(BaseTest):
         formPage.enter_textbox_bad(TestData.EXAMPLE_NUM_BAD)
         proof = formPage.check_error_message(TestData.ERROR_TEXT)
         assert proof == TestData.ERROR_TEXT
+
+    def test_vc_ArrowBox(self):
+        self.loginPage = LoginPage(self.driver)
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        # homePage.elect_DFS()
+        self.homePage = HomePage(self.driver)
+        formPage = self.homePage.elect_DFS()
+        time.sleep(1)
+        self.driver.find_element_by_css_selector(".ant-input-number").click()
+        formPage.click_arrow_up()
+        formPage.click_arrow_up()
+        formPage.click_arrow_down()
+        formPage.click_arrow_down()
+        formPage.click_arrow_down()
+        proof = self.driver.find_element_by_css_selector('.ant-input-number-input-wrap > input').get_attribute('value')
+        assert proof == "1"
 
