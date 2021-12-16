@@ -21,6 +21,7 @@ class FormPage(BasePage):
     ARROW_UP = (By.CSS_SELECTOR, ".anticon-up > svg:nth-child(1)")
     ARROW_DOWN = (By.CSS_SELECTOR, ".ant-input-number-handler-down")
     VIEW_ARROW_COUNT = (By.CSS_SELECTOR, ".ant-input-number-input-wrap")
+    ARROW_INPUT = (By.CSS_SELECTOR, ".ant-input-number-input-wrap > input")
 
 
     def __init__(self, driver):
@@ -65,6 +66,6 @@ class FormPage(BasePage):
     def click_arrow_down(self):
         self.do_click(self.ARROW_DOWN)
 
-
-
-        # return DataForm(self.driver)
+    def enter_wrong_data(self, wrong_data):
+        self.do_send_keys(self.ARROW_INPUT, wrong_data)
+        self.do_click(self.EMPTY_AREA)

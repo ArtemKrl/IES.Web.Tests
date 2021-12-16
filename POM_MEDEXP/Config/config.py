@@ -19,3 +19,4 @@ class TestData:
     DFS_TEXT = "Пояснения:"
     ERROR_TEXT = "Длина текста больше 5 символов"
     ATTRIBUTE_VALUE = "1"
+    WRONG_DATA = "fsdfsd"

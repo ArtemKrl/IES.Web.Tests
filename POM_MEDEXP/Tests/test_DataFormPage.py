@@ -64,3 +64,14 @@ class Test_DataForm(BaseTest):
         proof = self.driver.find_element_by_css_selector('.ant-input-number-input-wrap > input').get_attribute('value')
         assert proof == "1"
 
+    def test_vc_ArrowBox_wrong_data(self):
+        self.loginPage = LoginPage(self.driver)
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        # homePage.elect_DFS()
+        self.homePage = HomePage(self.driver)
+        formPage = self.homePage.elect_DFS()
+        formPage.enter_wrong_data(TestData.WRONG_DATA)
+        proof = self.driver.find_element_by_css_selector('.ant-input-number-input-wrap > input').get_attribute(
+                 'value')
+        assert proof == "2"
+
