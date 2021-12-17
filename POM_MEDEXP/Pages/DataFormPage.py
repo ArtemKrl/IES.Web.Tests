@@ -20,8 +20,29 @@ class FormPage(BasePage):
     ERROR_MESSAGE = (By.CSS_SELECTOR, ".ant-form-item-explain-error > div")
     ARROW_UP = (By.CSS_SELECTOR, ".anticon-up > svg:nth-child(1)")
     ARROW_DOWN = (By.CSS_SELECTOR, ".ant-input-number-handler-down")
-    VIEW_ARROW_COUNT = (By.CSS_SELECTOR, ".ant-input-number-input-wrap")
+    VIEW_ARROW_COUNT = (By.CSS_SELECTOR, ".ant-input-number-input-wrap > input")
     ARROW_INPUT = (By.CSS_SELECTOR, ".ant-input-number-input-wrap > input")
+    BIT_MENU = (By.CSS_SELECTOR, "div:nth-child(5) > div:nth-child(3) > div > div.ant-col.ant-form-item-control > div "
+                                 "> div > div")
+    BIT_ITEM_0 = (By.CSS_SELECTOR, ".ant-select-item-option-active")
+    BIT_ITEM_1 = (By.CSS_SELECTOR, "div.ant-select-item:nth-child(2) > div:nth-child(1)")
+    BIT_ITEM_3 = (By.CSS_SELECTOR, "div.ant-select-item:nth-child(4) > div:nth-child(1)")
+
+    ITEM_IN_FORM_0 = (By.CSS_SELECTOR, "div.ant-select-selection-overflow-item:nth-child(1)")
+    ITEM_IN_FORM_1 = (By.CSS_SELECTOR, "div.ant-select-selection-overflow-item:nth-child(2)")
+    ITEM_IN_FORM_2 = (By.CSS_SELECTOR, "div.ant-select-selection-overflow-item:nth-child(3)")
+    ITEM_IN_FORM_3 = (By.CSS_SELECTOR, "div.ant-select-selection-overflow-item:nth-child(4)")
+
+    CLEAR_DATE = (By.CSS_SELECTOR, "span.ant-picker-clear:nth-child(6)")
+    BEGGIN_DATE = (By.CSS_SELECTOR, ".ant-picker-input-active > input")
+    END_DATE = (By.CSS_SELECTOR, ".ant-picker-input-active > input")
+    SELECT_DAY = (By.CSS_SELECTOR, ".ant-picker-cell-selected > div")
+
+    DOWNLOAD_BUTTON = (By.CSS_SELECTOR, ".ant-btn-sm > span:nth-child(2)")
+
+
+
+
 
 
     def __init__(self, driver):
@@ -60,8 +81,8 @@ class FormPage(BasePage):
     def click_arrow_up(self):
         self.do_click(self.ARROW_UP)
 
-    def view_arrow_count(self, text):
-        self.get_element_value(self.VIEW_ARROW_COUNT)
+    # def view_arrow_count(self, text):
+    #     self.get_element_value(self.VIEW_ARROW_COUNT)
 
     def click_arrow_down(self):
         self.do_click(self.ARROW_DOWN)
@@ -69,3 +90,28 @@ class FormPage(BasePage):
     def enter_wrong_data(self, wrong_data):
         self.do_send_keys(self.ARROW_INPUT, wrong_data)
         self.do_click(self.EMPTY_AREA)
+
+    def elect_bit_item(self):
+        self.do_click(self.BIT_MENU)
+        self.do_click(self.BIT_ITEM_0)
+        self.do_click(self.BIT_ITEM_1)
+        self.do_click(self.BIT_ITEM_3)
+
+    def check_bit_item(self):
+        return self.is_visible(self.ITEM_IN_FORM_0)
+        return self.is_visible(self.ITEM_IN_FORM_1)
+        return self.is_visible(self.ITEM_IN_FORM_2)
+        return self.is_visible(self.ITEM_IN_FORM_3)
+
+    def push_btn_download(self):
+        return self.is_clickable(self.DOWNLOAD_BUTTON)
+
+    def select_date_range(self, beggin_date, end_date):
+        self.do_click(self.CLEAR_DATE)
+        self.do_send_keys(self.BEGGIN_DATE, beggin_date)
+        self.do_click(self.SELECT_DAY)
+        self.do_send_keys(self.END_DATE, end_date)
+        self.do_click(self.SELECT_DAY)
+
+
+

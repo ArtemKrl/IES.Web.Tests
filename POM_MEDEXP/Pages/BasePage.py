@@ -27,8 +27,8 @@ class BasePage:
         return element.text
 
     # def get_element_value(self, by_locator):
-    #     element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).get_attribute('value')
-    #     return element.driver
+    #     element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
+    #     return element.get_attribute('value')
 
     # driver.find_element_by_css_selector('.ant-input-number-input-wrap > input').get_attribute('value')
     def is_clickable(self, by_locator):
@@ -48,3 +48,5 @@ class BasePage:
         #        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(title))
         EC.visibility_of_element_located(title)
         return self.driver.title
+
+

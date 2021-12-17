@@ -20,3 +20,6 @@ class TestData:
     ERROR_TEXT = "Длина текста больше 5 символов"
     ATTRIBUTE_VALUE = "1"
     WRONG_DATA = "fsdfsd"
+
+    BEGGIN_DATE = "01.01.2018"
+    END_DATE = "01.01.2022"
