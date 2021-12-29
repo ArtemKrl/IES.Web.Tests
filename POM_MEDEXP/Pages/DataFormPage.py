@@ -52,6 +52,7 @@ class FormPage(BasePage):
 
 
 
+
     def check_drop_menu(self):
         self.do_click(self.DROP_MENU_OPEN)
         self.do_click(self.DROP_MENU_ITEM)

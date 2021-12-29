@@ -23,3 +23,13 @@ class TestData:
 
     BEGGIN_DATE = "01.01.2018"
     END_DATE = "01.01.2022"
+
+    ELECTIONS_PAGE_TITLE = "Выберите отбор"
+
+    OVERALL_HEADING = "Отборы / Общий отбор"
+    MTR_LPU_HEADING = "Отборы / Отбор по счетам МТР от ЛПУ"
+    HOSPITAL_HEADING = "Отборы / Отборы по стационару"
+    OUTGOING_HEADING = "Отборы / Отбор по исходящим счетам"
+    POLYCLINIC_HEADING = "Отборы / Отборы по поликлинике"
+    HOME_HOSPITAL_HEADING = "Отборы / Стационар на дому"
+    AMBULANCE_HEADING = "Отборы / Отборы по скорой помощи"
