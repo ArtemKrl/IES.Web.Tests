@@ -17,7 +17,6 @@ class Test_ElectionPage(BaseTest):
         homePage.follow_election()
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
-        electionsPage.check_text_title(TestData.ELECTIONS_PAGE_TITLE)
         proof = electionsPage.check_text_title(TestData.ELECTIONS_PAGE_TITLE)
         assert proof == TestData.ELECTIONS_PAGE_TITLE
 
@@ -31,7 +30,7 @@ class Test_ElectionPage(BaseTest):
         proof = electionsPage.check_text_heading(TestData.OVERALL_HEADING)
         assert proof == TestData.OVERALL_HEADING
 
-    def test_elect_myr_lpu(self):
+    def test_elect_mtr_lpu(self):
         self.loginPage = LoginPage(self.driver)
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()

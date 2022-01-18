@@ -33,3 +33,5 @@ class TestData:
     POLYCLINIC_HEADING = "Отборы / Отборы по поликлинике"
     HOME_HOSPITAL_HEADING = "Отборы / Стационар на дому"
     AMBULANCE_HEADING = "Отборы / Отборы по скорой помощи"
+
+    TEXT_OF_ALLERT = "Данные формы сохранены"

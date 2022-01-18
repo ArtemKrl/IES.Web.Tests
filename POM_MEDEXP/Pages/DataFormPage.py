@@ -17,7 +17,7 @@ class FormPage(BasePage):
     CHECKBOX_FLAG = (By.CLASS_NAME, "ant-checkbox-checked")
     TEXT_FORM = (By.CSS_SELECTOR, "textarea")
     EMPTY_AREA = (By.CSS_SELECTOR, "div:nth-child(7)")
-    ERROR_MESSAGE = (By.CSS_SELECTOR, ".ant-form-item-explain-error > div")
+    ERROR_MESSAGE = (By.CLASS_NAME, "ant-form-item-explain-error")
     ARROW_UP = (By.CSS_SELECTOR, ".anticon-up > svg:nth-child(1)")
     ARROW_DOWN = (By.CSS_SELECTOR, ".ant-input-number-handler-down")
     VIEW_ARROW_COUNT = (By.CSS_SELECTOR, ".ant-input-number-input-wrap > input")
