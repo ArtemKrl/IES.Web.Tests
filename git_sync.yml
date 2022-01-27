@@ -1,0 +1,22 @@
+# add to pipeline variable $(PAT_TFS) = token for vitacoredo
+#                         
+name: git_sync_$(Date:yyyyMMdd)$(Rev:.r)
+pr: none
+trigger: 
+#- ci
+- *
+
+variables:
+  git_url: https://github.com/vitacore-company/ies-tests.git
+
+jobs:
+- job: Git sync to github.com
+  pool:
+    name: IES-WEB
+  steps:
+  - checkout: none
+
+  - task: nkdAgility.gittasks.gitsync-task.gitsync@1
+    displayName: 'Git Publish to https://github.com/vitacore-company/ies-tests.git '
+    inputs:
+      GitRepoUrl: 'https://github.com/vitacore-company/ies-tests.git '
