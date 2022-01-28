@@ -12,7 +12,7 @@ variables:
 jobs:
 - job: GitSyncToGithubCom
   pool:
-    name: IES-WEB
+    name: git-sync
   steps:
   - checkout: none
 
