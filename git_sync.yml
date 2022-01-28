@@ -4,7 +4,7 @@ name: git_sync_$(Date:yyyyMMdd)$(Rev:.r)
 pr: none
 trigger: 
 #- ci
-- *
+- '*'
 
 variables:
   git_url: https://github.com/vitacore-company/ies-tests.git
