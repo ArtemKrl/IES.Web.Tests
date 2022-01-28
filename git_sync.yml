@@ -19,7 +19,7 @@ jobs:
   - checkout: self
 
   - task: nkdAgility.gittasks.gitsync-task.gitsync@1
-    displayName: 'Git Publish to https://github.com/vitacore-company/...'
+    displayName: 'Git Publish to https://github.com/vitacore-company/..'
     inputs:
       GitRepoUrl: '$(GIT_URL) '
 
