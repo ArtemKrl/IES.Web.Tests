@@ -16,11 +16,6 @@ jobs:
   steps:
   - checkout: self
 
-  - script: |
-      cd $(System.DefaultWorkingDirectory)
-      git pull
-    displayName: 'Pulling from origin'
-
   - task: nkdAgility.gittasks.gitsync-task.gitsync@1
     displayName: 'Git Publish to https://github.com/vitacore-company/...'
     inputs:
