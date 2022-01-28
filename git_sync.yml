@@ -7,7 +7,7 @@ trigger:
 - '*'
 
 variables:
-  git_url: 'https://$(PAT_TFS)@github.com/vitacore-company/ies-tests.git'
+  git_url: https://$(PAT_TFS)@github.com/vitacore-company/ies-tests.git
 
 jobs:
 - job: GitSyncToGithubCom
@@ -15,8 +15,9 @@ jobs:
     name: git-sync
   steps:
   - checkout: self
+    clean: true
 
   - task: nkdAgility.gittasks.gitsync-task.gitsync@1
     displayName: 'Git Publish to https://github.com/vitacore-company/'
     inputs:
-      GitRepoUrl: $(GIT_URL)
+      GitRepoUrl: '$(GIT_URL) '
