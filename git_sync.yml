@@ -10,7 +10,7 @@ variables:
   git_url: https://github.com/vitacore-company/ies-tests.git
 
 jobs:
-- job: Git_sync_to_github.com
+- job: GitSyncToGithubCom
   pool:
     name: IES-WEB
   steps:
