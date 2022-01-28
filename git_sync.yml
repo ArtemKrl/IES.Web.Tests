@@ -21,5 +21,5 @@ jobs:
     inputs:
       GitRepoUrl: '$(GIT_URL) '
 
- - script: ' rd $(System.DefaultWorkingDirectory) /s /q'
+  - script: ' rd $(System.DefaultWorkingDirectory) /s /q'
     displayName: 'Removing directory with sources'
