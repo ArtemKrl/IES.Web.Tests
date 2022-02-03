@@ -1,4 +1,6 @@
 # add to pipeline variable $(PAT_TFS) = token for vitacoredo
+#                          $(ssh-TFS-GitHub) = public key for vitacoredo in GitHub
+# load secure file to Azure->Pipelines->library ssh-TFS-GitHub = private key for vitacoredo 
 #                         
 name: git_sync_$(Date:yyyyMMdd)$(Rev:.r)
 pr: none
@@ -16,10 +18,33 @@ jobs:
   workspace: 
     clean: all
   steps:
-  - checkout: self
+  - task: InstallSSHKey@0
+    inputs:
+      knownHostsEntry: 'tfs'
+      sshPublicKey: '$(ssh-TFS-GitHub)'
+      sshKeySecureFile: 'ssh-TFS-GitHub'
+    displayName: 'Install an SSH key'
+
+  - script: ssh-keyscan -t rsa tfs >> ~/.ssh/known_hosts
+    displayName: Install key
+
+  - checkout: none
 
   - task: nkdAgility.gittasks.gitsync-task.gitsync@1
     displayName: 'Git Publish to https://github.com/vitacore-company/..'
     inputs:
       GitRepoUrl: '$(GIT_URL) '
+    enabled: false
 
+  - script: |
+      cd ~
+      ls -la
+      mkdir ./AzureRepos
+      cd ./AzureRepos
+      git clone --mirror ssh://tfs:22/tfs/IES.Web.Tests/_git/IES.Web.Tests ./IES.Web.Tests
+      cd ./IES.Web.Tests
+      git remote add --mirror=fetch secondary https://$(PAT_TFS)@github.com/vitacore-company/ies-tests.git
+      git fetch origin
+      git push secondary --all
+    displayName: 'Fetch and Push code on remote machine to github.com'
+  
