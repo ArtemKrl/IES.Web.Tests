@@ -7,7 +7,7 @@ class TestData:
     CHROME_EXECUTABLE_PATH = "/Users/Artem.Korol/Desktop/Selenium/geckodriver.exe"
     FIREFOX_EXECUTABLE_PATH = "/Users/Artem.Korol/Desktop/Selenium"
 
-    BASE_URL = "http://ies-dev.test/"
+    BASE_URL = "http://ies-rc.test/"
     USER_NAME = "1"
     PASSWORD = "1"
 

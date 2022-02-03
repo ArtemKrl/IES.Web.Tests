@@ -26,8 +26,6 @@ class Test_DataForm(BaseTest):
         self.homePage = HomePage(self.driver)
         formPage = self.homePage.elect_DFS()
         formPage.press_checkbox()
-        formPage.press_checkbox()
-
         proof = formPage.check_flag_checkbox()
         assert proof
 
@@ -85,12 +83,12 @@ class Test_DataForm(BaseTest):
 
     def test_datePicker(self):
         self.loginPage = LoginPage(self.driver)
+        # homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
         self.homePage = HomePage(self.driver)
         formPage = self.homePage.elect_DFS()
         time.sleep(1)
-        self.driver.find_element_by_css_selector("div:nth-child(5) > div:nth-child(1) > div > "
-                                                 "div.ant-col.ant-form-item-control > div > div").click()
-        time.sleep(1)
+        self.driver.find_element_by_css_selector(".ant-picker-input-active > input").click()
+        time.sleep(2)
         formPage.select_date_range(TestData.BEGGIN_DATE, TestData.END_DATE)
         proof_1 = self.driver.find_element_by_css_selector(".ant-picker-range > div:nth-child(1) > input:nth-child(1)").get_attribute("value")
         proof_2 = self.driver.find_element_by_css_selector("div.ant-picker-input:nth-child(3) > input:nth-child(1)").get_attribute("value")

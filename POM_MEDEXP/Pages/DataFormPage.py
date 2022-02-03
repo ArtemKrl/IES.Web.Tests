@@ -58,7 +58,7 @@ class FormPage(BasePage):
         self.do_click(self.DROP_MENU_ITEM)
 
     def press_checkbox(self):
-        self.do_click(self.CHECKBOX_CONTAINER)
+        self.is_clickable(self.CHECKBOX_CONTAINER)
 
     def check_flag_checkbox(self):
         return self.is_visible(self.CHECKBOX_FLAG)
@@ -109,6 +109,7 @@ class FormPage(BasePage):
 
     def select_date_range(self, beggin_date, end_date):
         self.do_click(self.CLEAR_DATE)
+        time.sleep(1)
         self.do_send_keys(self.BEGGIN_DATE, beggin_date)
         self.do_click(self.SELECT_DAY)
         self.do_send_keys(self.END_DATE, end_date)
