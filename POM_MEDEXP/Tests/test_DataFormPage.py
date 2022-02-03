@@ -26,6 +26,8 @@ class Test_DataForm(BaseTest):
         self.homePage = HomePage(self.driver)
         formPage = self.homePage.elect_DFS()
         formPage.press_checkbox()
+        formPage.press_checkbox()
+
         proof = formPage.check_flag_checkbox()
         assert proof
 
