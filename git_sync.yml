@@ -28,3 +28,6 @@ jobs:
     displayName: Install key
   - checkout: self
 
+  - script: |
+      pwd
+    displayName: 'Fetch and Push code to github.com'
