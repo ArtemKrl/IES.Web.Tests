@@ -17,9 +17,14 @@ jobs:
   workspace: 
     clean: all
   steps:
+  - task: InstallSSHKey@0
+    inputs:
+      knownHostsEntry: 'tfs'
+      sshPublicKey: '$(ssh-TFS-GitHub)'
+      sshKeySecureFile: 'ssh-TFS-GitHub'
+    displayName: 'Install an SSH key'
+
+  - script: ssh-keyscan -t rsa tfs >> ~/.ssh/known_hosts
+    displayName: Install key
   - checkout: self
 
-  - task: nkdAgility.gittasks.gitsync-task.gitsync@1
-    displayName: 'Git Publish to https://github.com/vitacore-company/..'
-    inputs:
-      GitRepoUrl: '$(GIT_URL) '
