@@ -10,7 +10,7 @@ trigger:
 variables:
   github_url: https://$(PAT_TFS)@github.com/vitacore-company/ies-tests.git
   git_url: ssh://tfs:22/tfs/IES.Web.Tests/_git/IES.Web.Tests
-  git_dir: IES.Web.Tests
+  git_dir: IES.Web.Tests2
 
 jobs:
 - job: GitSyncToGithubCom
