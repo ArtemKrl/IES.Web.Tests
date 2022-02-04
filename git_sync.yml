@@ -29,5 +29,8 @@ jobs:
   - checkout: self
 
   - script: |
-      pwd
+      cd ~
+      ls -la
+      mkdir ./AzureRepos
+      ls -la
     displayName: 'Fetch and Push code to github.com'
