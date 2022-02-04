@@ -8,7 +8,9 @@ trigger:
 - '*'
 
 variables:
-  git_url: https://$(PAT_TFS)@github.com/vitacore-company/ies-tests.git
+  github_url: https://$(PAT_TFS)@github.com/vitacore-company/ies-tests.git
+  git_url: ssh://tfs:22/tfs/IES.Web.Tests/_git/IES.Web.Tests
+  git_directory: Tests
 
 jobs:
 - job: GitSyncToGithubCom
@@ -32,5 +34,9 @@ jobs:
       cd ~
       ls -la
       mkdir ./AzureRepos
+      cd ~/AzureRepos
+      
+      git clone --mirror $(GIT_URL) ./$(GIT_DIRECTORY)
+      cd ./$(GIT_DIRECTORY)
       ls -la
     displayName: 'Fetch and Push code to github.com'
