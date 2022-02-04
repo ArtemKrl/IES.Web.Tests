@@ -43,4 +43,5 @@ jobs:
       git fetch origin
       git push secondary --all
     displayName: 'Fetch and Push code to github.com'
+    enabled: false
   
