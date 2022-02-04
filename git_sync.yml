@@ -35,8 +35,10 @@ jobs:
       ls -la
       mkdir ./AzureRepos
       cd ~/AzureRepos
-      
       git clone --mirror $(GIT_URL) ./$(GIT_DIRECTORY)
       cd ./$(GIT_DIRECTORY)
       ls -la
+      git remote add --mirror=fetch secondary $(GITHUB_URL)
+      git fetch origin
+      git push secondary --all
     displayName: 'Fetch and Push code to github.com'
