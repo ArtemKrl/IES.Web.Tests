@@ -16,6 +16,8 @@ jobs:
 - job: GitSyncToGithubCom
   pool:
     name: IES-WEB
+  workspace: 
+    clean: all
   steps:
   - task: InstallSSHKey@0
     inputs:
@@ -28,7 +30,6 @@ jobs:
     displayName: Install key
 
   - checkout: self
-    clean: all
 
   - script: |
       cd ~
