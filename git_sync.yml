@@ -10,14 +10,13 @@ trigger:
 variables:
   github_url: https://$(PAT_TFS)@github.com/vitacore-company/ies-tests.git
   git_url: ssh://tfs:22/tfs/IES.Web.Tests/_git/IES.Web.Tests
-  git_dir: test
 
 jobs:
 - job: GitSyncToGithubCom
   pool:
     name: IES-WEB
   steps:
-  - checkout: none
+  - checkout: self
   - task: InstallSSHKey@0
     inputs:
       knownHostsEntry: 'tfs'
