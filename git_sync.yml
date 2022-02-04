@@ -9,7 +9,8 @@ trigger:
 - '*'
 
 variables:
-  git_url: https://$(PAT_TFS)@github.com/vitacore-company/ies-tests.git
+  github_url: https://$(PAT_TFS)@github.com/vitacore-company/ies-tests.git
+  git_url: ssh://tfs:22/tfs/IES.Web.Tests/_git/IES.Web.Tests
 
 jobs:
 - job: GitSyncToGithubCom
@@ -41,9 +42,11 @@ jobs:
       ls -la
       mkdir ./AzureRepos
       cd ./AzureRepos
-      git clone --mirror ssh://tfs:22/tfs/IES.Web.Tests/_git/IES.Web.Tests ./IES.Web.Tests
+      git clone --mirror $(GIT_URL) ./IES.Web.Tests
       cd ./IES.Web.Tests
-      git remote add --mirror=fetch secondary https://$(PAT_TFS)@github.com/vitacore-company/ies-tests.git
+      pwd
+      ls -la
+      git remote add --mirror=fetch secondary $(GITHUB_URL)
       git fetch origin
       git push secondary --all
     displayName: 'Fetch and Push code on remote machine to github.com'
