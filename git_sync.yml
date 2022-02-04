@@ -14,7 +14,7 @@ variables:
 jobs:
 - job: GitSyncToGithubCom
   pool:
-    name: git-sync
+    name: IES-WEB
   workspace: 
     clean: all
   steps:
