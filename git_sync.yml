@@ -10,13 +10,13 @@ trigger:
 variables:
   github_url: https://$(PAT_TFS)@github.com/vitacore-company/ies-tests.git
   git_url: ssh://tfs:22/tfs/IES.Web.Tests/_git/IES.Web.Tests
+  git_dir: IES.Web.Tests
 
 jobs:
 - job: GitSyncToGithubCom
   pool:
     name: IES-WEB
   steps:
-  - checkout: self
   - task: InstallSSHKey@0
     inputs:
       knownHostsEntry: 'tfs'
@@ -27,14 +27,17 @@ jobs:
   - script: ssh-keyscan -t rsa tfs >> ~/.ssh/known_hosts
     displayName: Install key
 
+  - checkout: self
+    fetchDepth: 1
+
   - script: |
       cd ~
       ls -la
       mkdir ./AzureRepos
       cd ./AzureRepos
-      rm -rf ./Tests
-      git clone --mirror $(GIT_URL) ./Tests
-      cd ./Tests
+      rm -rf ./$(GIT_DIR)
+      git clone --mirror $(GIT_URL) ./$(GIT_DIR)
+      cd ./$(GIT_DIR)
       pwd
       ls -la
       git remote add --mirror=fetch secondary $(GITHUB_URL)
