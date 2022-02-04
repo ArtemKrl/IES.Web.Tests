@@ -33,9 +33,9 @@ jobs:
       ls -la
       mkdir ./AzureRepos
       cd ./AzureRepos
-      rm -rf ./IES.Web.Tests
-      git clone --mirror $(GIT_URL) ./IES.Web.Tests
-      cd ./IES.Web.Tests
+      rm -rf ./Tests
+      git clone --mirror $(GIT_URL) ./Tests
+      cd ./Tests
       pwd
       ls -la
       git remote add --mirror=fetch secondary $(GITHUB_URL)
