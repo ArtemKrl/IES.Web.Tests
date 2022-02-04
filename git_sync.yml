@@ -28,6 +28,7 @@ jobs:
     displayName: Install key
 
   - checkout: self
+    clean: all
 
   - script: |
       cd ~
