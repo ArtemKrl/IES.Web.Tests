@@ -8,7 +8,9 @@ trigger:
 - '*'
 
 variables:
-  git_url: https://$(PAT_TFS)@github.com/vitacore-company/ies-tests.git
+  github_url: https://$(PAT_TFS)@github.com/vitacore-company/ies-tests.git
+  git_url: ssh://tfs:22/tfs/IES.Web.Tests/_git/IES.Web.Tests
+  git_dir: IES.Web.Tests
 
 jobs:
 - job: GitSyncToGithubCom
@@ -17,9 +19,22 @@ jobs:
   workspace: 
     clean: all
   steps:
+  - task: InstallSSHKey@0
+    inputs:
+      knownHostsEntry: 'tfs'
+      sshPublicKey: '$(ssh-TFS-GitHub)'
+      sshKeySecureFile: 'ssh-TFS-GitHub'
+    displayName: 'Install an SSH key'
+
+  - script: ssh-keyscan -t rsa tfs >> ~/.ssh/known_hosts
+    displayName: Install key
+
   - checkout: self
 
   - task: nkdAgility.gittasks.gitsync-task.gitsync@1
     displayName: 'Git Publish to https://github.com/vitacore-company/..'
     inputs:
       GitRepoUrl: '$(GIT_URL) '
+    enabled: false
+
+  
