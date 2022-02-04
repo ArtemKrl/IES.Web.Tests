@@ -34,7 +34,7 @@ jobs:
       mkdir ./AzureRepos
       cd ./AzureRepos
       git clone --mirror $(GIT_URL) $(GIT_DIR)
-      cd ./$(GIT_DIR)
+      cd $(GIT_DIR)/
       pwd
       ls -la
       git remote add --mirror=fetch secondary $(GITHUB_URL)
