@@ -5,7 +5,6 @@
 name: git_sync_$(Date:yyyyMMdd)$(Rev:.r)
 pr: none
 trigger: 
-#- ci
 - '*'
 
 variables:
@@ -17,9 +16,8 @@ jobs:
 - job: GitSyncToGithubCom
   pool:
     name: IES-WEB
-  workspace: 
-    clean: all
   steps:
+  - checkout: none
   - task: InstallSSHKey@0
     inputs:
       knownHostsEntry: 'tfs'
@@ -29,14 +27,6 @@ jobs:
 
   - script: ssh-keyscan -t rsa tfs >> ~/.ssh/known_hosts
     displayName: Install key
-
-  - checkout: none
-
-  - task: nkdAgility.gittasks.gitsync-task.gitsync@1
-    displayName: 'Git Publish to https://github.com/vitacore-company/..'
-    inputs:
-      GitRepoUrl: '$(GIT_URL) '
-    enabled: false
 
   - script: |
       cd ~
