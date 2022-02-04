@@ -33,7 +33,7 @@ jobs:
       ls -la
       mkdir ./AzureRepos
       cd ./AzureRepos
-      git clone --mirror $(GIT_URL) ./$(GIT_DIR)
+      git clone --mirror $(GIT_URL) $(GIT_DIR)
       cd ./$(GIT_DIR)
       pwd
       ls -la
