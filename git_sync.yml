@@ -33,6 +33,7 @@ jobs:
       ls -la
       mkdir ./AzureRepos
       cd ./AzureRepos
+      rm -rf ./IES.Web.Tests
       git clone --mirror $(GIT_URL) ./IES.Web.Tests
       cd ./IES.Web.Tests
       pwd
