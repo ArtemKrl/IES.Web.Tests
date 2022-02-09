@@ -24,6 +24,7 @@ class TestData:
     BEGGIN_DATE = "01.01.2018"
     END_DATE = "01.01.2022"
 
+    END_DATE_MANUAL = "20.01.2022"
     ELECTIONS_PAGE_TITLE = "Выберите отбор"
 
     OVERALL_HEADING = "Отборы / Общий отбор"
