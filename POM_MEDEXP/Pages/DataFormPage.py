@@ -37,6 +37,17 @@ class FormPage(BasePage):
     BEGGIN_DATE = (By.CSS_SELECTOR, ".ant-picker-input-active > input")
     END_DATE = (By.CSS_SELECTOR, ".ant-picker-input-active > input")
     SELECT_DAY = (By.CSS_SELECTOR, ".ant-picker-cell-selected > div")
+    SWIPE_LEFT = (By.CSS_SELECTOR, "div:nth-child(1) > div > div.ant-picker-header > "
+                                   "button.ant-picker-header-super-prev-btn > span")
+    SWIPE_RIGHT = (By.CSS_SELECTOR, "div:nth-child(2) > div > div.ant-picker-header > "
+                                    "button.ant-picker-header-super-next-btn > span")
+    MANUAL_FIRST_NUM = (By.CSS_SELECTOR, "div:nth-child(1) > div > div.ant-picker-body > table > tbody > "
+                                         "tr:nth-child(1) > "
+                                         "td.ant-picker-cell.ant-picker-cell-start.ant-picker-cell-in-view > div")
+    MANUAL_SECOND_NUM = (By.CSS_SELECTOR, "div:nth-child(2) > div > div.ant-picker-body > table > tbody > "
+                                          "tr:nth-child(4) > "
+                                          "td.ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-end.ant"
+                                          "-picker-cell-selected")
 
     DOWNLOAD_BUTTON = (By.CSS_SELECTOR, ".ant-btn-sm > span:nth-child(2)")
 
@@ -108,6 +119,13 @@ class FormPage(BasePage):
         return self.is_clickable(self.DOWNLOAD_BUTTON)
 
     def select_date_range(self, beggin_date, end_date):
+        time.sleep(1)
+        self.do_click(self.BEGGIN_DATE)
+        self.do_click(self.SELECT_DAY)
+        self.do_send_keys(self.END_DATE, end_date)
+        self.do_click(self.SELECT_DAY)
+
+    def select_date_range_manual(self):
         self.do_click(self.CLEAR_DATE)
         time.sleep(1)
         self.do_send_keys(self.BEGGIN_DATE, beggin_date)
