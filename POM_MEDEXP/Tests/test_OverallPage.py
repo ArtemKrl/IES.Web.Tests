@@ -26,6 +26,7 @@ class Test_OverallPage(BaseTest):
         self.driver.find_element_by_css_selector("div:nth-child(2) > div:nth-child(1) > div > "
                                                  "div.ant-col.ant-form-item-control > div > div").click()
         formPage.select_date_range(TestData.BEGGIN_DATE, TestData.END_DATE)
+        time.sleep(1)
         electionsPage.random_select_second_list()
         electionsPage.push_select_button()
         electionsPage.check_good_allert()
