@@ -4,5 +4,6 @@ capabilities = {
     "selenoid:options": {
         "enableVNC": True,
         "enableVideo": True
-    }
+    },
+    "name": "develop" 
 }
