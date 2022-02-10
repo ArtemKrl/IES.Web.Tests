@@ -4,7 +4,7 @@ capabilities = {
     "selenoid:options": {
         "enableVNC": True,
         "enableVideo": True,
-        "name": "nameLatest"
+        "name": "nameLatest",
         "labels": {
             "environment": "latest", 
             "build-number": "123"
