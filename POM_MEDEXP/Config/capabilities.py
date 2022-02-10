@@ -4,6 +4,8 @@ capabilities = {
     "selenoid:options": {
         "enableVNC": True,
         "enableVideo": True
+        "videoName": "latest.mp4"
     },
-    "name": "develop" 
+    "name": "latest",
+
 }
