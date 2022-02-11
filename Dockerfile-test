@@ -1,12 +1,9 @@
 FROM python:3.10
 
-WORKDIR /
-
 COPY ./requirements.txt /POM_MEDEXP/
-RUN pip install --no-cache-dir -r requirements.txt
+WORKDIR /POM_MEDEXP/
+RUN pip install --no-cache-dir -r ./requirements.txt
 
 COPY ./POM_MEDEXP/ /POM_MEDEXP/
-
-WORKDIR /POM_MEDEXP/
 
 CMD ["tail", "-f", "/dev/null" ]
