@@ -3,7 +3,8 @@ services:
   selenoid:
     image: "aerokube/selenoid:latest-release"
     container_name: selenoid
-    network_mode: bridge
+    networks: 
+      - sel
     ports:
       - "4444:4444"
     volumes:
@@ -19,7 +20,8 @@ services:
   selenoid-ui:
     image: "aerokube/selenoid-ui"
     container_name: selenoid-ui
-    network_mode: bridge
+    networks: 
+      - sel
     links:
       - selenoid
     ports:
@@ -28,15 +30,21 @@ services:
   web:
     image: $IMAGE
     container_name: web
-    network_mode: bridge
+    networks: 
+      - sel
     ports:
       - "80:80"
   test:
     build:
       context: .
       dockerfile: Dockerfile-test 
-    network_mode: bridge
+    networks: 
+      - sel
     container_name: test
     links:
       - selenoid
       - web
+
+networks:
+  sel:
+    driver: bridge
