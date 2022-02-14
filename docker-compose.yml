@@ -47,5 +47,4 @@ services:
 
 networks:
   selnetwork:
-    name: selnetwork
     driver: bridge
