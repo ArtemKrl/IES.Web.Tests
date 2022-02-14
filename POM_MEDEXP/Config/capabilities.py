@@ -4,6 +4,5 @@ capabilities = {
     "selenoid:options": {
         "enableVNC": True,
         "enableVideo": True,
-        "additionalNetworks": "sel"
     }
 }
