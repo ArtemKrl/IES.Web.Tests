@@ -1,10 +1,10 @@
-version: '3'
+version: '3.9'
 services:
   selenoid:
     image: "aerokube/selenoid:latest-release"
     container_name: selenoid
     networks: 
-      - sel
+      - selnetwork
     ports:
       - "4444:4444"
     volumes:
@@ -14,16 +14,16 @@ services:
       - "$CONFIGDIR/logs:/opt/selenoid/logs"
     environment:
       - OVERRIDE_VIDEO_OUTPUT_DIR=$CONFIGDIR/video
-    links:
-      - web
-    command: ["-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs",, "-container-network", "sel"]
+#    links:
+#      - web
+    command: ["-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs", "-container-network", "sel"]
   selenoid-ui:
     image: "aerokube/selenoid-ui"
     container_name: selenoid-ui
     networks: 
-      - sel
-    links:
-      - selenoid
+      - selnetwork
+#    links:
+#      - selenoid
     ports:
       - "8080:8080"
     command: ["--selenoid-uri", "http://selenoid:4444"]
@@ -31,7 +31,7 @@ services:
     image: $IMAGE
     container_name: web
     networks: 
-      - sel
+      - selnetwork
     ports:
       - "80:80"
   test:
@@ -39,12 +39,13 @@ services:
       context: .
       dockerfile: Dockerfile-test 
     networks: 
-      - sel
+      - selnetwork
     container_name: test
-    links:
-      - selenoid
-      - web
+#    links:
+#      - selenoid
+#      - web
 
 networks:
-  sel:
+  selnetwork:
+    name: selnetwork
     driver: bridge
