@@ -15,7 +15,7 @@ class HomePage(BasePage):
     ADDITIONAL_ELECTION = (By.CSS_SELECTOR, '.ant-layout-sider-light.ant-layout-sider-has-trigger > div.ant-layout-sider-children > ul > li:nth-child(1) > span.anticon.ant-menu-item-icon')
     ADDITIONAL_DFS = (By.CSS_SELECTOR, '.ant-menu-light > li:nth-child(2) > span:nth-child(1)')
     DFS_PAGE = (By.CSS_SELECTOR, "p:nth-child(1)")
-    VITACORE_LOGO = (By.CSS_SELECTOR, ".NavRail_logo__2mva4 > svg")
+    VITACORE_LOGO = (By.CSS_SELECTOR, ".vc-nr-logo > svg")
 
 
     def __init__(self, driver):
