@@ -60,7 +60,7 @@ class Test_DataForm(BaseTest):
         formPage.click_arrow_down()
         formPage.click_arrow_down()
         proof = self.driver.find_element_by_css_selector('.ant-input-number-input-wrap > input').get_attribute('value')
-        assert proof == "2"
+        assert proof == "33"
 
     def test_vc_ArrowBox_wrong_data(self):
         self.loginPage = LoginPage(self.driver)
@@ -69,7 +69,7 @@ class Test_DataForm(BaseTest):
         formPage.enter_wrong_data(TestData.WRONG_DATA)
         proof = self.driver.find_element_by_css_selector('.ant-input-number-input-wrap > input').get_attribute(
                  'value')
-        assert proof == "3"
+        assert proof == "34"
 
     def test_BitChoice(self):
         self.loginPage = LoginPage(self.driver)
