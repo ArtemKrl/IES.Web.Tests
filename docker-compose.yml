@@ -4,7 +4,7 @@ services:
     image: "aerokube/selenoid:latest-release"
     container_name: selenoid
     networks: 
-      - selnetwork
+      selnetwork: null
     ports:
       - "4444:4444"
     volumes:
@@ -21,7 +21,7 @@ services:
     image: "aerokube/selenoid-ui"
     container_name: selenoid-ui
     networks: 
-      - selnetwork
+      selnetwork: null
 #    links:
 #      - selenoid
     ports:
@@ -31,7 +31,7 @@ services:
     image: $IMAGE
     container_name: web
     networks: 
-      - selnetwork
+      selnetwork: null
     ports:
       - "80:80"
   test:
@@ -39,7 +39,7 @@ services:
       context: .
       dockerfile: Dockerfile-test 
     networks: 
-      - selnetwork
+      selnetwork: null
     container_name: test
 #    links:
 #      - selenoid
@@ -47,4 +47,5 @@ services:
 
 networks:
   selnetwork:
-    driver: bridge
+    external:
+      name: selnetwork
