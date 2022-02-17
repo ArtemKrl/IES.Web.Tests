@@ -1,3 +1,4 @@
 FROM aerokube/selenoid:latest-release
 
 COPY ./chromedriver /usr/bin/chromedriver
+COPY ./config/browsers-bin.json /etc/selenoid/browsers.json
