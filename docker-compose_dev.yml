@@ -26,6 +26,8 @@ services:
     container_name: web_dev
     networks: 
       selnetwork_dev: null
+    ports: 
+      - "80:80"
   test:
     build:
       context: .
