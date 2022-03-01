@@ -1,0 +1,11 @@
+{
+    "chrome": {
+      "default": "89.0",                             
+      "versions": {     
+        "89.0": {                                    
+          "image": "/usr/bin/chromedriver",
+          "port": "4444"             
+        }
+      }
+    }
+}
