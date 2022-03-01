@@ -10,8 +10,11 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class HomePage(BasePage):
 
-    GENERAL_ADM = (By.CSS_SELECTOR, '.anticon-right-square.ant-menu-item-icon')
-    GENERAL_EXP = (By.CSS_SELECTOR, ".ant-layout-sider.ant-layout-sider-dark.ant-layout-sider-has-trigger > div.ant-layout-sider-children > ul > li:nth-child(1) > span.anticon.ant-menu-item-icon > span")
+    GENERAL_ADM = (By.CSS_SELECTOR, 'li:nth-child(2) > span.anticon.ant-menu-item-icon')
+    GENERAL_EXP = (By.CSS_SELECTOR, ".ant-layout-sider.ant-layout-sider-dark.ant-layout-sider-has-trigger > "
+                                    "div.ant-layout-sider-children > ul > li:nth-child(1) > "
+                                    "span.anticon.ant-menu-item-icon > span")
+
     ADDITIONAL_ELECTION = (By.CSS_SELECTOR, '.ant-layout-sider-light.ant-layout-sider-has-trigger > div.ant-layout-sider-children > ul > li:nth-child(1) > span.anticon.ant-menu-item-icon')
     ADDITIONAL_DFS = (By.CSS_SELECTOR, '.ant-menu-light > li:nth-child(2) > span:nth-child(1)')
     DFS_PAGE = (By.CSS_SELECTOR, "p:nth-child(1)")
