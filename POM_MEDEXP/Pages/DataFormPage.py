@@ -68,7 +68,7 @@ class FormPage(BasePage):
         self.do_click(self.DROP_MENU_ITEM)
 
     def press_checkbox(self):
-        self.is_clickable(self.CHECKBOX_CONTAINER)
+        return self.is_clickable(self.CHECKBOX_CONTAINER)
 
     def check_flag_checkbox(self):
         return self.is_visible(self.CHECKBOX_FLAG)
