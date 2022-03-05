@@ -1,0 +1,42 @@
+version: '3'
+services:
+  selenoid:
+    image: "vitacore/nodockerselenoid:chr89"
+    container_name: selenoid_nd_dev
+    networks: 
+      selnetwork_nd_dev: null
+    volumes:
+      - "$CONFIGDIR/config:/etc/selenoid" # assumed current dir contains browsers.json
+#      - "/var/run/docker.sock:/var/run/docker.sock"
+#      - "$CONFIGDIR/video:/opt/selenoid/video"
+      - "$CONFIGDIR/logs:/opt/selenoid/logs"
+#    environment:
+#      - OVERRIDE_VIDEO_OUTPUT_DIR=$CONFIGDIR/video
+    command: ["-container-network", "selnetwork_nd_dev"]
+  selenoid-ui:
+    image: "aerokube/selenoid-ui"
+    container_name: selenoid-ui_nd_dev
+    networks: 
+      selnetwork_nd_dev: null
+    ports:
+      - "8083:8080"
+    command: ["--selenoid-uri", "http://selenoid:4444"]
+  web:
+    image: $IMAGE
+    container_name: web_nd_dev
+    networks: 
+      selnetwork_nd_dev: null
+    ports: 
+      - "83:80"
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile-test 
+    networks: 
+      selnetwork_nd_dev: null
+    container_name: test_nd_dev
+
+networks:
+  selnetwork_nd_dev:
+    external:
+      name: selnetwork_nd_dev
