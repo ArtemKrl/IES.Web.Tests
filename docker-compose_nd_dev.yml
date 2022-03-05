@@ -12,7 +12,7 @@ services:
 #      - "$CONFIGDIR/logs:/opt/selenoid/logs"
 #    environment:
 #      - OVERRIDE_VIDEO_OUTPUT_DIR=$CONFIGDIR/video
-    command: ["-container-network", "selnetwork_nd_dev"]
+    command: ["-container-network", "selnetwork_nd_dev", "-disable-docker"]
   selenoid-ui:
     image: "aerokube/selenoid-ui"
     container_name: selenoid-ui_nd_dev
