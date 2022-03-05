@@ -25,8 +25,8 @@ class Test_DataForm(BaseTest):
         homePage.elect_DFS()
         self.homePage = HomePage(self.driver)
         formPage = self.homePage.elect_DFS()
-        formPage.press_checkbox()
-        proof = formPage.check_flag_checkbox()
+        proof = formPage.press_checkbox()
+        # proof = formPage.check_flag_checkbox()
         assert proof
 
 
@@ -60,7 +60,7 @@ class Test_DataForm(BaseTest):
         formPage.click_arrow_down()
         formPage.click_arrow_down()
         proof = self.driver.find_element_by_css_selector('.ant-input-number-input-wrap > input').get_attribute('value')
-        assert proof == "33"
+        assert proof == "3466"
 
     def test_vc_ArrowBox_wrong_data(self):
         self.loginPage = LoginPage(self.driver)
@@ -69,7 +69,7 @@ class Test_DataForm(BaseTest):
         formPage.enter_wrong_data(TestData.WRONG_DATA)
         proof = self.driver.find_element_by_css_selector('.ant-input-number-input-wrap > input').get_attribute(
                  'value')
-        assert proof == "34"
+        assert proof == "3467"
 
     def test_BitChoice(self):
         self.loginPage = LoginPage(self.driver)

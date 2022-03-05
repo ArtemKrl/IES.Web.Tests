@@ -34,4 +34,17 @@ class Test_OverallPage(BaseTest):
 
         assert proof == TestData.TEXT_OF_ALLERT
 
+    def test_empty_form(self):
+        self.loginPage = LoginPage(self.driver)
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
+        self.homePage = HomePage(self.driver)
+        electionsPage = self.homePage.follow_election()
+        electionsPage.elect_overall()
+        electionsPage.create_new_election()
+        electionsPage.follow_two_step()
+        proof = electionsPage.check_error_allert()
+        assert proof
+
+
 

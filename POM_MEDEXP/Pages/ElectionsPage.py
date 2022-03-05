@@ -22,6 +22,7 @@ class ElectionsPage(BasePage):
     TITLE_PAGE = (By.CLASS_NAME, "ant-typography")
     HEADING_PAGE = (By.CLASS_NAME, "top-bar-caption")
     NEW_SELECTION = (By.CSS_SELECTOR, ".vt-vc-command-menu > div:nth-child(1) > div > button")
+    TWO_STEP_ELECT = (By.CSS_SELECTOR, "div:nth-child(2) > div > div.ant-steps-item-content > div")
 
     TYPE_MENU_OPEN = (By.CSS_SELECTOR, "div:nth-child(1) > div:nth-child(1) > div > div.ant-col.ant-form-item-control > div > div")
     ITEM_TYPE_MENU = (By.CSS_SELECTOR, "div:nth-child(6) > div > div > div > div > div > div.vc-vt-grid-wrapper > "
@@ -38,6 +39,7 @@ class ElectionsPage(BasePage):
     SELECT_BUTTON = (By.CLASS_NAME, "ant-btn-primary")
     GOOD_ALLERT = (By.CLASS_NAME, "vitacore-ui-notification")
     ALLERT_TEXT = (By.CLASS_NAME, "ant-notification-notice-description")
+    ERROR_ALLERT = (By.CLASS_NAME, "ant-notification-topRight")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -73,6 +75,8 @@ class ElectionsPage(BasePage):
 
     def create_new_election(self):
         self.do_click(self.NEW_SELECTION)
+    def follow_two_step(self):
+        self.do_click(self.TWO_STEP_ELECT)
 
     def fill_type_menu(self):
         self.do_click(self.TYPE_MENU_OPEN)
@@ -84,6 +88,9 @@ class ElectionsPage(BasePage):
 
     def select_items_first_list(self):
         self.do_click(self.FIRST_LIST_CHECKBOX)
+
+    def check_error_allert(self):
+       return self.is_visible(self.ERROR_ALLERT)
 
     def random_select_second_list(self):
         first_list = self.driver.find_elements_by_class_name("ant-checkbox-input")
