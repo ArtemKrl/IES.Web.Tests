@@ -119,7 +119,8 @@ class FormPage(BasePage):
 
     def select_date_range(self, beggin_date, end_date):
         time.sleep(1)
-        self.do_click(self.BEGGIN_DATE)
+        self.do_click(self.CLEAR_DATE)
+        self.do_send_keys(self.BEGGIN_DATE, beggin_date)
         self.do_click(self.SELECT_DAY)
         self.do_send_keys(self.END_DATE, end_date)
         self.do_click(self.SELECT_DAY)
