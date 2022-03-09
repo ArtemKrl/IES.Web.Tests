@@ -58,7 +58,8 @@ RUN      wget https://dl.google.com/linux/direct/google-chrome-stable_current_am
 COPY ./chromedriver /usr/bin/chromedriver
 RUN chmod -R 755 /usr/bin/chromedriver
 
-COPY ./config/browsers-bin.json /etc/selenoid/browsers.json
+
+COPY ./config/browsers-bin.json /etc/selenoid/browsers-bin.json
 
 COPY ./selenoid /usr/bin/selenoid
 RUN chmod -R 755 /usr/bin/selenoid
