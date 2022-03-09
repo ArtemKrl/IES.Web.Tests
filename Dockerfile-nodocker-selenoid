@@ -49,12 +49,8 @@ RUN     apt-get update && \
          iproute2 \
          wget 
 RUN      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-         apt-get -y purge wget && \
          dpkg -i --force-depends google-chrome-stable_current_amd64.deb && \
-         sed -i -e 's@exec -a "$0" "$HERE/chrome"@& --no-sandbox --disable-gpu@' /opt/google/$INSTALL_DIR/$PACKAGE && \
-         rm google-chrome.deb && \
-         chown root:root /opt/google/$INSTALL_DIR/chrome-sandbox && \
-         chmod 4755 /opt/google/$INSTALL_DIR/chrome-sandbox && \
+         rm google-chrome-stable_current_amd64.deb && \
          google-chrome --version && \
          rm -Rf /tmp/* && \
          rm -Rf /var/lib/apt/lists/*
