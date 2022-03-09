@@ -1,7 +1,7 @@
 version: '3'
 services:
   selenoid:
-    image: "vitacore/nodockerselenoid:chr89"
+    image: "vitacore/ubuntunodockerselenoid:chr89"
     container_name: selenoid_nd_dev
     networks: 
       selnetwork_nd_dev: null
