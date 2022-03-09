@@ -1,5 +1,8 @@
 FROM ubuntu:20.04
 
+ARG PACKAGE=google-chrome-stable
+ARG INSTALL_DIR=chrome
+
 RUN     apt-get update && \
         apt-get -y --no-install-recommends install gconf-service \
          libasound2 \
