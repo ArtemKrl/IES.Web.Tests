@@ -47,8 +47,8 @@ RUN     apt-get update && \
          xdg-utils \
          libcurl4 \
          iproute2 \
-         wget && \
-         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+         wget 
+RUN      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
          apt-get -y purge wget && \
          dpkg -i --force-depends google-chrome-stable_current_amd64.deb && \
          sed -i -e 's@exec -a "$0" "$HERE/chrome"@& --no-sandbox --disable-gpu@' /opt/google/$INSTALL_DIR/$PACKAGE && \
