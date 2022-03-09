@@ -5,6 +5,8 @@ services:
     container_name: selenoid_nd_dev
     networks: 
       selnetwork_nd_dev: null
+    ports: 
+      - "4443:4444"
     volumes:
       - "$CONFIGDIR/config:/etc/selenoid" # assumed current dir contains browsers.json
 #      - "/var/run/docker.sock:/var/run/docker.sock"
