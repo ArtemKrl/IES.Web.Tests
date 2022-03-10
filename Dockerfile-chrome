@@ -1,0 +1,9 @@
+FROM selenoid/chrome:89.0
+
+COPY ./selenoid /usr/bin/selenoid
+RUN chmod -R 755 /usr/bin/selenoid
+
+COPY ./config/browsers-bin.json /etc/selenoid/browsers.json
+
+EXPOSE 4444
+ENTRYPOINT ["/usr/bin/selenoid", "-listen", ":4444", "-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video/", "--disable-docker"]
