@@ -96,7 +96,7 @@ class Test_DataForm(BaseTest):
 
     def test_datePicker_manual(self):
         self.loginPage = LoginPage(self.driver)
-        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        # homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
         self.homePage = HomePage(self.driver)
         formPage = self.homePage.elect_DFS()
         time.sleep(1)
