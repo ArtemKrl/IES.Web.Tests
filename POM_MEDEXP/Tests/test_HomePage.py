@@ -16,8 +16,8 @@ class Test_Home(BaseTest):
 
 
     def test_follow_to_DFS(self):
-        self.loginPage = LoginPage(self.driver)
-        self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        #self.loginPage = LoginPage(self.driver)
+        #self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
         self.homePage = HomePage(self.driver)
         self.homePage.elect_DFS()
         page = self.homePage.DFS_page_is_open(TestData.DFS_TEXT)
