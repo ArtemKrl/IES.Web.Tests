@@ -9,16 +9,9 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class OverallPage(BasePage):
 
-    OVERALL_SELECTION = (By.CSS_SELECTOR, 'div:nth-child(1) > button')
-    MTR_LPU_SELECTION = (By.CSS_SELECTOR, 'div:nth-child(2) > button')
-    HOSPITAL_SELECTION = (By.CSS_SELECTOR, 'div:nth-child(3) > button')
-    OUTGOING_SELECTION = (By.CSS_SELECTOR, 'div:nth-child(4) > button')
-    POLYCLINIC_SELECTION = (By.CSS_SELECTOR, 'div:nth-child(5) > button')
-    HOME_HOSPITAL = (By.CSS_SELECTOR, 'div:nth-child(6) > button')
-    AMBULANCE_SELECTION = (By.CSS_SELECTOR, 'div:nth-child(7) > button')
-
     TITLE_PAGE = (By.CLASS_NAME, "ant-typography")
     HEADING_PAGE = (By.CLASS_NAME, "top-bar-caption")
+    TABLE_FORM_NUM_ELECTION = (By.CLASS_NAME, "ant-input-number-input-wrap")
 
 
 
@@ -32,3 +25,6 @@ class OverallPage(BasePage):
 
     def check_text_heading(self, text):
         return self.get_element_text(self.HEADING_PAGE)
+
+    def table_form_num_on(self):
+        self.do_click(self.TABLE_FORM_NUM_ELECTION)

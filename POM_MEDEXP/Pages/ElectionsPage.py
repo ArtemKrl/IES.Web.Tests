@@ -5,6 +5,7 @@ from POM_MEDEXP.Pages.DataFormPage import FormPage
 from POM_MEDEXP.Pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from POM_MEDEXP.Config.config import TestData
 
 
 
@@ -23,10 +24,10 @@ class ElectionsPage(BasePage):
     HEADING_PAGE = (By.CLASS_NAME, "top-bar-caption")
     NEW_SELECTION = (By.CSS_SELECTOR, ".vt-vc-command-menu > div:nth-child(1) > div > button")
     TWO_STEP_ELECT = (By.CSS_SELECTOR, "div:nth-child(2) > div > div.ant-steps-item-content > div")
+    THREE_STEP_ELECT = (By.CSS_SELECTOR, "div:nth-child(3) > div > div.ant-steps-item-content > div")
 
     TYPE_MENU_OPEN = (By.CSS_SELECTOR, "div:nth-child(1) > div:nth-child(1) > div > div.ant-col.ant-form-item-control > div > div")
-    ITEM_TYPE_MENU = (By.CSS_SELECTOR, "div:nth-child(6) > div > div > div > div > div > div.vc-vt-grid-wrapper > "
-                                       "div.sizer > div.vc-sizer > div > div:nth-child(1) > div:nth-child(2) > div")
+    ITEM_TYPE_MENU = (By.XPATH, "/html/body/div[2]/div/div/div/div/div/div[2]/div[1]/div[2]/div/div[1]/div[3]/div")
 
     SMO_MENU_OPEN = (By.CSS_SELECTOR, "div:nth-child(1) > div:nth-child(2) > div > div.ant-col.ant-form-item-control "
                                       "> div > div")
@@ -39,7 +40,29 @@ class ElectionsPage(BasePage):
     SELECT_BUTTON = (By.CLASS_NAME, "ant-btn-primary")
     GOOD_ALLERT = (By.CLASS_NAME, "vitacore-ui-notification")
     ALLERT_TEXT = (By.CLASS_NAME, "ant-notification-notice-description")
-    ERROR_ALLERT = (By.CLASS_NAME, "ant-notification-topRight")
+    ERROR_TEXT = (By.CLASS_NAME, "ant-form-item-explain-error")
+    TABLE_FORM_NUM_ELECTION = (By.CSS_SELECTOR, ".ant-input-number-input-wrap > input")
+    SEARCH_ELECTION_NUM = (By.CSS_SELECTOR, "div.vc-vt-basic:nth-child(2) > div:nth-child(1)")
+    XXX = (By.CSS_SELECTOR, ".ant-input-number-input")
+    UNTRIED_CHECKBOX = (By.CSS_SELECTOR, ".ant-checkbox-checked")
+    EXP_CHECKBOX = (By.CSS_SELECTOR, "div:nth-child(1) > span.ant-tree-checkbox > span")
+    GENERATE_REQ = (By.CSS_SELECTOR, ".ant-space-align-center > div:nth-child(2) > button")
+    MO_CHECKBOX = (By.CSS_SELECTOR, "div:nth-child(2) > label > span.ant-checkbox")
+    CREATE_REQ = (By.CSS_SELECTOR, ".ant-modal-footer > button.ant-btn.ant-btn-primary")
+    END_ELECTION = (By.CSS_SELECTOR, ".ant-space-align-center > div:nth-child(1) > button")
+    ACCEPT_END = (By.CSS_SELECTOR, ".ant-btn-primary.ant-btn-sm")
+    GENERAL_INFO = (By.CSS_SELECTOR, ".vc-msf-heading")
+    ITEM_SYS_DOTS = (By.CSS_SELECTOR, "div.vc-vt-row:nth-child(1) > div:nth-child(4) > button:nth-child(1) > span:nth-child(1)")
+    ITEM_SYS_OPEN = (By.CSS_SELECTOR, ".vc-context-list > li:nth-child(1) > button:nth-child(1) > span:nth-child(2)")
+    END_EVENTS = (By.CSS_SELECTOR, "div.vc-csf-filtersGroupItem:nth-child(1)")
+    TYPE_EXP = (By.CSS_SELECTOR, "div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div > div > div")
+    MEE_ITEM = (By.CSS_SELECTOR, ".rc-virtual-list-holder > div > div > div:nth-child(2) > div")
+    MEK_ITEM = (By.CSS_SELECTOR, ".rc-virtual-list-holder > div > div > div:nth-child(1) > div")
+    VALUE_TABLE = (By.CSS_SELECTOR, "div.vc-vt-row:nth-child(1) > div:nth-child(3) > div:nth-child(1)")
+    CLEAR_FORM = (By.CSS_SELECTOR, ".ant-select-clear")
+    DROP_SET = (By.CSS_SELECTOR, ".drop-settings")
+    RESET_ALL_SET = (By.CSS_SELECTOR, ".bold-item")
+    YES_RESET = (By.CSS_SELECTOR, ".ant-btn-primary.ant-btn-sm")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -77,6 +100,8 @@ class ElectionsPage(BasePage):
         self.do_click(self.NEW_SELECTION)
     def follow_two_step(self):
         self.do_click(self.TWO_STEP_ELECT)
+    def follow_third_step(self):
+        self.do_click(self.THREE_STEP_ELECT)
 
     def fill_type_menu(self):
         self.do_click(self.TYPE_MENU_OPEN)
@@ -89,20 +114,20 @@ class ElectionsPage(BasePage):
     def select_items_first_list(self):
         self.do_click(self.FIRST_LIST_CHECKBOX)
 
-    def check_error_allert(self):
-       return self.is_visible(self.ERROR_ALLERT)
+    def check_error_allert(self, text):
+       return self.get_element_text(self.ERROR_TEXT)
 
     def random_select_second_list(self):
         first_list = self.driver.find_elements_by_class_name("ant-checkbox-input")
-        choice_here_1 = first_list[6:7]
+        choice_here_1 = first_list[4:6]
         random.choice(choice_here_1).click()  # random select one item
-        choice_here_2 = first_list[8:9]
+        choice_here_2 = first_list[7:8]
         random.choice(choice_here_2).click()  # random select one item
         time.sleep(1)
         second_list = self.driver.find_elements_by_class_name("ant-checkbox-input")
-        choice_here_3 = second_list[11:12]
+        choice_here_3 = second_list[10:12]
         random.choice(choice_here_3).click()  # random select one item
-        choice_here_4 = second_list[13:15]
+        choice_here_4 = second_list[13:14]
         random.choice(choice_here_4).click()  # random select one item
 
     def push_select_button(self):
@@ -113,3 +138,61 @@ class ElectionsPage(BasePage):
 
     def text_good_allert(self, text):
         return self.get_element_text(self.ALLERT_TEXT)
+
+
+    def send_num_selection(self, num_selection):
+        self.do_send_keys(self.TABLE_FORM_NUM_ELECTION, num_selection)
+
+    def execute_search_num(self, text):
+        return self.get_element_text(self.SEARCH_ELECTION_NUM)
+
+    def untried_checkbox(self):
+        self.do_click(self.UNTRIED_CHECKBOX)
+
+    def exp_checkbox(self):
+        self.do_click(self.EXP_CHECKBOX)
+
+    def generate_req(self):
+        self.do_click(self.GENERATE_REQ)
+
+    def breakdown_mo(self):
+        self.do_click(self.MO_CHECKBOX)
+
+    def go_generate_req(self):
+        self.do_click(self.CREATE_REQ)
+
+    def end_election(self):
+        self.do_click(self.END_ELECTION)
+        self.do_click(self.ACCEPT_END)
+
+    def choiсe_in_system(self):
+        self.do_click(self.ITEM_SYS_DOTS)
+        self.do_click(self.ITEM_SYS_OPEN)
+
+    def follow_end_events(self):
+        self.do_click(self.END_EVENTS)
+
+    def choice_type_exp(self):
+        self.do_click(self.TYPE_EXP)
+        self.do_click(self.MEE_ITEM)
+        self.do_click(self.MEK_ITEM)
+
+    def execute_type_exp(self, text):
+        return self.get_element_text(self.VALUE_TABLE)
+
+    def clear_type_exp(self):
+        self.do_click(self.TYPE_EXP)
+        self.is_clickable(self.CLEAR_FORM)
+
+    def reset_set(self):
+        self.do_click(self.DROP_SET)
+        self.do_click(self.RESET_ALL_SET)
+        self.do_click(self.YES_RESET)
+
+
+
+    # def empty_form(self):
+    #     self.driver.find_element_by_class_name("ant-input-number-input").clear()
+
+
+
