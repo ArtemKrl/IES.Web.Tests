@@ -43,7 +43,6 @@ class ElectionsPage(BasePage):
     ERROR_TEXT = (By.CLASS_NAME, "ant-form-item-explain-error")
     TABLE_FORM_NUM_ELECTION = (By.CSS_SELECTOR, ".ant-input-number-input-wrap > input")
     SEARCH_ELECTION_NUM = (By.CSS_SELECTOR, "div.vc-vt-basic:nth-child(2) > div:nth-child(1)")
-    XXX = (By.CSS_SELECTOR, ".ant-input-number-input")
     UNTRIED_CHECKBOX = (By.CSS_SELECTOR, ".ant-checkbox-checked")
     EXP_CHECKBOX = (By.CSS_SELECTOR, "div:nth-child(1) > span.ant-tree-checkbox > span")
     GENERATE_REQ = (By.CSS_SELECTOR, ".ant-space-align-center > div:nth-child(2) > button")
@@ -63,6 +62,9 @@ class ElectionsPage(BasePage):
     DROP_SET = (By.CSS_SELECTOR, ".drop-settings")
     RESET_ALL_SET = (By.CSS_SELECTOR, ".bold-item")
     YES_RESET = (By.CSS_SELECTOR, ".ant-btn-primary.ant-btn-sm")
+    PROGRESS_BAR_ALLERT = (By.CSS_SELECTOR, ".progressBars")
+    ERROR_ALLERT = (By.CLASS_NAME, "ant-notification-notice-message")
+
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -119,10 +121,13 @@ class ElectionsPage(BasePage):
 
     def random_select_second_list(self):
         first_list = self.driver.find_elements_by_class_name("ant-checkbox-input")
-        choice_here_1 = first_list[4:6]
+        choice_here_1 = first_list[4:5]
         random.choice(choice_here_1).click()  # random select one item
-        choice_here_2 = first_list[7:8]
+
+        choice_here_2 = first_list[6:]
         random.choice(choice_here_2).click()  # random select one item
+        choice_here_3 = first_list[7:8]
+        random.choice(choice_here_3).click()  # random select one item
         time.sleep(1)
         second_list = self.driver.find_elements_by_class_name("ant-checkbox-input")
         choice_here_3 = second_list[10:12]
@@ -188,6 +193,12 @@ class ElectionsPage(BasePage):
         self.do_click(self.DROP_SET)
         self.do_click(self.RESET_ALL_SET)
         self.do_click(self.YES_RESET)
+
+    def check_progress_bar(self):
+        return self.is_visible(self.PROGRESS_BAR_ALLERT)
+
+    def allert_notice_check(self):
+        return self.is_visible(self.ERROR_ALLERT)
 
 
 
