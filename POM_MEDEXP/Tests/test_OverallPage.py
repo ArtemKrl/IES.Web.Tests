@@ -24,10 +24,7 @@ class Test_OverallPage(BaseTest):
         electionsPage.fill_smo_menu()
         formPage = FormPage(self.driver)
         electionsPage.untried_checkbox()
-
-
         formPage.select_date_range(TestData.BEGGIN_DATE, TestData.END_DATE)
-
         electionsPage.random_select_second_list()
         electionsPage.push_select_button()
         proof_1 = electionsPage.text_good_allert(TestData.TEXT_OF_ALLERT)
@@ -94,6 +91,20 @@ class Test_OverallPage(BaseTest):
         check_clear = electionsPage.clear_type_exp()
 
         assert TestData.VALUE_TYPE_EXP == search_data, check_clear
+
+    def test_btn_point(self):
+        self.loginPage = LoginPage(self.driver)
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
+        self.homePage = HomePage(self.driver)
+        electionsPage = self.homePage.follow_election()
+        electionsPage.elect_overall()
+        proof_1 = electionsPage.btn_point_del()
+        electionsPage.btn_point_open()
+        proof_2 = electionsPage.check_text_heading(TestData.OVERALL_HEADING)
+        assert proof_1, proof_2
+
+
 
 
 
