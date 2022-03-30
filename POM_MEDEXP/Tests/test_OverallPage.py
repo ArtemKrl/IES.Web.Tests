@@ -42,8 +42,8 @@ class Test_OverallPage(BaseTest):
 
     def test_empty_form(self):
         self.loginPage = LoginPage(self.driver)
-        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-        homePage.follow_election()
+        # homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        # homePage.follow_election()
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
         electionsPage.elect_overall()
@@ -94,8 +94,8 @@ class Test_OverallPage(BaseTest):
 
     def test_btn_point(self):
         self.loginPage = LoginPage(self.driver)
-        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-        homePage.follow_election()
+        # homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        # homePage.follow_election()
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
         electionsPage.elect_overall()
