@@ -50,6 +50,8 @@ class FormPage(BasePage):
 
     DOWNLOAD_BUTTON = (By.CSS_SELECTOR, ".ant-btn-sm > span:nth-child(2)")
 
+    OPEN_DATEPICKER = (By.CSS_SELECTOR, ".ant-row:nth-child(2) > div:nth-child(1) > div > div:nth-child(2) > div")
+
 
 
 
@@ -119,8 +121,7 @@ class FormPage(BasePage):
 
     def select_date_range(self, beggin_date, end_date):
         time.sleep(1)
-        self.driver.find_element_by_css_selector("div:nth-child(5) > div:nth-child(1) > div > "
-                                                 "div.ant-col.ant-form-item-control > div > div").click()
+        self.do_click(self.OPEN_DATEPICKER)
         self.do_click(self.CLEAR_DATE)
         self.do_send_keys(self.BEGGIN_DATE, beggin_date)
         self.do_click(self.SELECT_DAY)

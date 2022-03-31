@@ -65,6 +65,7 @@ class ElectionsPage(BasePage):
     PROGRESS_BAR_ALLERT = (By.CSS_SELECTOR, ".progressBars")
     ERROR_ALLERT = (By.CLASS_NAME, "ant-notification-notice-message")
     BTN_POINT = (By.CSS_SELECTOR, ".vc-vt-row:nth-child(1) > div:nth-child(10) > button:nth-child(1)")
+    EMPTY_CLICK = (By.CSS_SELECTOR, ".ant-layout-sider-light.ant-layout-sider-has-trigger > div.ant-layout-sider-children")
     BTN_DEL = (By.CSS_SELECTOR, "li:nth-child(2) > button:nth-child(1)")
     BTN_OPEN = (By.CSS_SELECTOR, "li:nth-child(1) > button:nth-child(1)")
     BTN_DEL_NOTIFICATION = (By.CSS_SELECTOR, ".ant-notification")
@@ -211,7 +212,7 @@ class ElectionsPage(BasePage):
 
 
     def btn_point_open(self):
-        self.do_click(self.BTN_POINT)
+        self.do_click(self.EMPTY_CLICK)
 
         self.do_click(self.BTN_POINT)
         self.do_click(self.BTN_OPEN)

@@ -37,13 +37,15 @@ class Test_OverallPage(BaseTest):
         electionsPage.end_election()
 
         proof_3 = electionsPage.allert_notice_check()
+        quit = self.homePage.quit_from_system()
+
         assert proof_1 == TestData.TEXT_OF_ALLERT, proof_2
-        assert proof_3
+        assert proof_3, quit
 
     def test_empty_form(self):
         self.loginPage = LoginPage(self.driver)
-        # homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-        # homePage.follow_election()
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
         electionsPage.elect_overall()
@@ -51,24 +53,33 @@ class Test_OverallPage(BaseTest):
         electionsPage.follow_two_step()
 
         proof = electionsPage.check_error_allert(TestData.ATTENTION_TEXT_ERROR)
+        quit = self.homePage.quit_from_system()
+
         assert proof == TestData.ATTENTION_TEXT_ERROR
+        assert quit
+
+
 
     def test_follow_bid_created(self):
         self.loginPage = LoginPage(self.driver)
-        # homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-        # homePage.follow_election()
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
         electionsPage.elect_overall()
         electionsPage.create_new_election()
         electionsPage.follow_third_step()
         proof = electionsPage.check_error_allert(TestData.ATTENTION_TEXT_ERROR)
+        quit = self.homePage.quit_from_system()
+
         assert proof == TestData.ATTENTION_TEXT_ERROR
+        assert quit
+
 
     def test_table_num_selection(self):
         self.loginPage = LoginPage(self.driver)
-        # homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-        # homePage.follow_election()
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
         electionsPage.elect_overall()
@@ -77,11 +88,15 @@ class Test_OverallPage(BaseTest):
         search_data = electionsPage.execute_search_num(TestData.NUM_SELECTION)
         assert TestData.NUM_SELECTION == search_data
         electionsPage.reset_set()
+        quit = self.homePage.quit_from_system()
+        assert quit
+
+
 
     def test_table_type_exp(self):
         self.loginPage = LoginPage(self.driver)
-        # homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-        # homePage.follow_election()
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
         electionsPage.elect_overall()
@@ -89,20 +104,26 @@ class Test_OverallPage(BaseTest):
         time.sleep(1)
         search_data = electionsPage.execute_type_exp(TestData.VALUE_TYPE_EXP)
         check_clear = electionsPage.clear_type_exp()
+        quit = self.homePage.quit_from_system()
 
         assert TestData.VALUE_TYPE_EXP == search_data, check_clear
+        assert quit
 
     def test_btn_point(self):
         self.loginPage = LoginPage(self.driver)
-        # homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-        # homePage.follow_election()
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
         electionsPage.elect_overall()
+        time.sleep(1)
         proof_1 = electionsPage.btn_point_del()
         electionsPage.btn_point_open()
         proof_2 = electionsPage.check_text_heading(TestData.OVERALL_HEADING)
         assert proof_1, proof_2
+        quit = self.homePage.quit_from_system()
+
+        assert quit
 
 
 
