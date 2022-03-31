@@ -50,7 +50,7 @@ class FormPage(BasePage):
 
     DOWNLOAD_BUTTON = (By.CSS_SELECTOR, ".ant-btn-sm > span:nth-child(2)")
 
-    OPEN_DATEPICKER = (By.CSS_SELECTOR, ".ant-row:nth-child(2) > div:nth-child(1) > div > div:nth-child(2) > div")
+    OPEN_DATEPICKER = (By.CSS_SELECTOR, ".ant-picker-input-active > input")
 
 
 

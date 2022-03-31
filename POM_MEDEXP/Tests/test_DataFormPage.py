@@ -90,7 +90,8 @@ class Test_DataForm(BaseTest):
                  'value')
         quit = self.homePage.quit_from_system()
 
-        assert proof == "3467", quit
+        assert proof == "3467"
+        assert quit
 
     def test_BitChoice(self):
         self.loginPage = LoginPage(self.driver)
@@ -110,7 +111,6 @@ class Test_DataForm(BaseTest):
         self.homePage = HomePage(self.driver)
         formPage = self.homePage.elect_DFS()
         time.sleep(1)
-        self.driver.find_element_by_css_selector(".ant-picker-input-active > input").click()
         time.sleep(2)
         formPage.select_date_range(TestData.BEGGIN_DATE, TestData.END_DATE)
         proof_1 = self.driver.find_element_by_css_selector(".ant-picker-range > div:nth-child(1) > input:nth-child(1)").get_attribute("value")
