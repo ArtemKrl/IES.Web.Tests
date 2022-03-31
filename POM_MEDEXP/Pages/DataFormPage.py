@@ -52,6 +52,8 @@ class FormPage(BasePage):
 
     OPEN_DATEPICKER = (By.CSS_SELECTOR, ".ant-picker-input-active > input")
 
+    SELECTOR_VALUE = (By.CSS_SELECTOR, ".ant-input-number-input-wrap > input")
+
 
 
 
@@ -103,6 +105,9 @@ class FormPage(BasePage):
     def enter_wrong_data(self, wrong_data):
         self.do_send_keys(self.ARROW_INPUT, wrong_data)
         self.do_click(self.EMPTY_AREA)
+
+    def input_wrap(self):
+        return self.execute_value(self.SELECTOR_VALUE)
 
     def elect_bit_item(self):
         self.do_click(self.BIT_MENU)

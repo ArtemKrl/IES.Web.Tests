@@ -14,6 +14,7 @@ class Test_Home(BaseTest):
         homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
         self.homePage = HomePage(self.driver)
         check_in = homePage.is_vitacore_logo_exist()
+        time.sleep(1)
         quit = self.homePage.quit_from_system()
 
         assert check_in, quit
@@ -21,13 +22,13 @@ class Test_Home(BaseTest):
 
     def test_follow_to_DFS(self):
         self.loginPage = LoginPage(self.driver)
-        self.loginPage.login_page_is_visible()
         self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
         self.homePage = HomePage(self.driver)
         self.homePage.elect_DFS()
         page = self.homePage.DFS_page_is_open(TestData.DFS_TEXT)
         quit = self.homePage.quit_from_system()
         assert page == TestData.DFS_TEXT, quit
+
 
 
 

@@ -86,8 +86,8 @@ class Test_DataForm(BaseTest):
         self.homePage = HomePage(self.driver)
         formPage = self.homePage.elect_DFS()
         formPage.enter_wrong_data(TestData.WRONG_DATA)
-        proof = self.driver.find_element_by_css_selector('.ant-input-number-input-wrap > input').get_attribute(
-                 'value')
+        time.sleep(1)
+        proof = formPage.input_wrap()
         quit = self.homePage.quit_from_system()
 
         assert proof == "3467"
