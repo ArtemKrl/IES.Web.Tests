@@ -208,7 +208,6 @@ class ElectionsPage(BasePage):
         self.do_click(self.BTN_POINT)
         self.do_click(self.BTN_DEL)
         return self.is_visible(self.BTN_DEL_NOTIFICATION)
-        self.do_click(self.BTN_POINT)
 
 
     def btn_point_open(self):

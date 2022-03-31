@@ -20,6 +20,9 @@ class HomePage(BasePage):
     DFS_PAGE = (By.CSS_SELECTOR, "p:nth-child(1)")
     VITACORE_LOGO = (By.CSS_SELECTOR, ".vc-nr-logo > svg")
 
+    QUIT_SYSTEM = (By.CSS_SELECTOR, ".anticon-logout.ant-menu-item-icon")
+    LOGIN_PICTURE = (By.CSS_SELECTOR, "#login-page > div > div")
+
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -47,6 +50,13 @@ class HomePage(BasePage):
         if self.is_visible(self.ADDITIONAL_ELECTION):
             self.do_click(self.ADDITIONAL_ELECTION)
         return ElectionsPage(self.driver)
+
+    def login_page_is_visible(self):
+        return self.is_visible(self.LOGIN_CONTAINER)
+
+    def quit_from_system(self):
+        self.do_click(self.QUIT_SYSTEM)
+        return self.is_visible(self.LOGIN_PICTURE)
 
 
 
