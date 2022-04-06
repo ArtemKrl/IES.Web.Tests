@@ -1,6 +1,7 @@
-
 # add to pipeline variable $(PAT_TFS) = token for vitacoredo
-#                         
+#                          $(rsa-tfsbuild) = public key for tfsbuild
+# load secure file to Azure->Pipelines->library rsa-tfsbuild = private key for tfsbuild 
+#                   
 name: git_sync_$(Date:yyyyMMdd)$(Rev:.r)
 pr: none
 trigger: 
@@ -21,13 +22,15 @@ jobs:
   steps:
   - task: InstallSSHKey@0
     inputs:
-      knownHostsEntry: 'tfs'
-      sshPublicKey: '$(ssh-TFS-GitHub)'
-      sshKeySecureFile: 'ssh-TFS-GitHub'
+      knownHostsEntry: 'tfs ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCdgH9tMgJ9vIK28PbbNRhDu5P4bNR8ITPcjiOXjoTov/BQ9HtbBRyH2QabvhFoK4YVG+GyLcOuUTuHFDu01Xv5KvSeB+XlI86cIVtdqmfQzOb0Z8tLEJ9AvElMOSvfsR7teAcoVGRCtBTlRItnHNWEtAu7/j31eht/ZXd/4hhNJseoJuDeBGmvBQH4n40rwy6Sy1f53oGRWBFuue+UHasQw9Ao7xyeIVWqnEkmgUq1A6/BGgVZzW7gK4ICqiRYRoak1FawVq8waZNFPpQJKAg7vGI1ryxWvS2aBObVucw02frDdgunzB2RSg+FPQ+EXEbqNH41u1cOvvtSDF5Umd7'
+      sshPublicKey: '$(rsa-tfsbuild)'
+      sshKeySecureFile: 'rsa-tfsbuild'
     displayName: 'Install an SSH key'
 
   - script: ssh-keyscan -t rsa tfs >> ~/.ssh/known_hosts
     displayName: Install key
+    enabled: false
+    
   - checkout: self
 
   - script: |
