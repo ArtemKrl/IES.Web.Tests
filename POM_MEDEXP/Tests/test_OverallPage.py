@@ -24,7 +24,7 @@ class Test_OverallPage(BaseTest):
         electionsPage.fill_smo_menu()
         formPage = FormPage(self.driver)
         electionsPage.untried_checkbox()
-        formPage.select_date_range(TestData.BEGGIN_DATE, TestData.END_DATE)
+        formPage.select_date_range(TestData.BEGIN_DATE, TestData.END_DATE)
         electionsPage.random_select_second_list()
         electionsPage.push_select_button()
         proof_1 = electionsPage.text_good_allert(TestData.TEXT_OF_ALLERT)
@@ -100,6 +100,7 @@ class Test_OverallPage(BaseTest):
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
         electionsPage.elect_overall()
+        time.sleep(3)
         electionsPage.choice_type_exp()
         time.sleep(1)
         search_data = electionsPage.execute_type_exp(TestData.VALUE_TYPE_EXP)
@@ -125,6 +126,37 @@ class Test_OverallPage(BaseTest):
 
         assert quit
 
+
+    def test_setting_сolumn(self):
+        self.loginPage = LoginPage(self.driver)
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
+        self.homePage = HomePage(self.driver)
+        electionsPage = self.homePage.follow_election()
+        electionsPage.elect_overall()
+        electionsPage.open_col_set()
+        electionsPage.multi_checked()
+        electionsPage.check_type_exp()
+        electionsPage.open_col_set()
+        electionsPage.multi_checked()
+        # quit = self.homePage.quit_from_system()
+        #
+        # assert proof == TestData.ATTENTION_TEXT_ERROR
+        # assert quit
+
+    def test_checkbox_setting_сolumn(self):
+        self.loginPage = LoginPage(self.driver)
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
+        self.homePage = HomePage(self.driver)
+        electionsPage = self.homePage.follow_election()
+        electionsPage.elect_overall()
+        electionsPage.open_col_set()
+        time.sleep(1)
+        electionsPage.selective_checked()
+        time.sleep(2)
+        electionsPage.selective_checked()
+        time.sleep(1)
 
 
 

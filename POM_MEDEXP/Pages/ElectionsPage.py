@@ -54,7 +54,9 @@ class ElectionsPage(BasePage):
     ITEM_SYS_DOTS = (By.CSS_SELECTOR, "div.vc-vt-row:nth-child(1) > div:nth-child(4) > button:nth-child(1) > span:nth-child(1)")
     ITEM_SYS_OPEN = (By.CSS_SELECTOR, ".vc-context-list > li:nth-child(1) > button:nth-child(1) > span:nth-child(2)")
     END_EVENTS = (By.CSS_SELECTOR, "div.vc-csf-filtersGroupItem:nth-child(1)")
-    TYPE_EXP = (By.CSS_SELECTOR, "div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div > div > div")
+    TYPE_EXP = (By.CSS_SELECTOR, ".sizer > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) "
+                                 "> div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > "
+                                 "div:nth-child(1)")
     MEE_ITEM = (By.CSS_SELECTOR, ".rc-virtual-list-holder > div > div > div:nth-child(2) > div")
     MEK_ITEM = (By.CSS_SELECTOR, ".rc-virtual-list-holder > div > div > div:nth-child(1) > div")
     VALUE_TABLE = (By.CSS_SELECTOR, "div.vc-vt-row:nth-child(1) > div:nth-child(3) > div:nth-child(1)")
@@ -69,6 +71,21 @@ class ElectionsPage(BasePage):
     BTN_DEL = (By.CSS_SELECTOR, "li:nth-child(2) > button:nth-child(1)")
     BTN_OPEN = (By.CSS_SELECTOR, "li:nth-child(1) > button:nth-child(1)")
     BTN_DEL_NOTIFICATION = (By.CSS_SELECTOR, ".ant-notification")
+    COLUMN_SET = (By.CLASS_NAME, "column_settings")
+    CHECKBOXES_COL_SET = (By.CSS_SELECTOR, ".ant-popover-inner > div > div > div > div > label > span > input")
+
+    box_1 = (By.CSS_SELECTOR, ".ant-popover-inner > div > div > div:nth-child(2) > div:nth-child(1) > label > span")
+    box_2 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(2) > label > span")
+    box_3 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(3) > label > span")
+    box_4 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(4) > label > span")
+    box_5 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(5) > label > span")
+    box_6 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(6) > label > span")
+    box_7 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(7) > label > span")
+    box_8 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(8) > label > span")
+
+    SAVE_SET = (By.CLASS_NAME, "vt-vc-header-menu-column-settings-btn-save")
+
+    TYPE_EXP = (By.CSS_SELECTOR, ".sizer > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div > span")
 
 
     def __init__(self, driver):
@@ -184,6 +201,7 @@ class ElectionsPage(BasePage):
 
     def choice_type_exp(self):
         self.do_click(self.TYPE_EXP)
+        time.sleep(1)
         self.do_click(self.MEE_ITEM)
         self.do_click(self.MEK_ITEM)
 
@@ -217,6 +235,51 @@ class ElectionsPage(BasePage):
         self.do_click(self.BTN_POINT)
         self.do_click(self.BTN_OPEN)
         # return self.is_visible()
+
+    def open_col_set(self):
+        self.is_clickable(self.COLUMN_SET)
+        self.do_click(self.COLUMN_SET)
+
+    def multi_checked(self):
+        self.do_click(self.box_2)
+        self.do_click(self.box_3)
+        self.do_click(self.box_4)
+        self.do_click(self.box_5)
+        self.do_click(self.box_6)
+        self.do_click(self.box_7)
+        self.do_click(self.box_8)
+
+        self.do_click(self.SAVE_SET)
+
+    def check_type_exp(self):
+        self.is_visible(self.TYPE_EXP)
+
+    def selective_checked(self):
+        self.do_click(self.box_1)
+        self.do_click(self.box_3)
+        self.do_click(self.box_6)
+
+
+        # first_list = Select(self.driver.find_element_by_css_selector(".ant-popover-inner > div > div > div > div > label > span > input"))
+        # first_list.select_by_index(1)
+        # box_2 = first_list[3]
+        # random.choice(box_2).click()  # random select one item
+        # box_3 = first_list[:3]
+        # random.choice(box_3).click()  # random select one item
+        # box_4 = first_list[:4]
+        # random.choice(box_4).click()  # random select one item
+        # box_5 = first_list[:5]
+        # random.choice(box_5).click()  # random select one item
+        # box_6 = first_list[:6]
+        # random.choice(box_6).click()  # random select one item
+        # box_7 = first_list[:7]
+        # random.choice(box_7).click()  # random select one item
+        # box_8 = first_list[:8]
+        # random.choice(box_8).click()  # random select one item
+        # box_9 = first_list[10:10]
+        # random.choice(box_9).click()  # random select one item
+
+
 
 
 

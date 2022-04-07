@@ -73,7 +73,7 @@ class Test_DataForm(BaseTest):
         formPage.click_arrow_down()
         formPage.click_arrow_down()
         formPage.click_arrow_down()
-        proof = self.driver.find_element_by_css_selector('.ant-input-number-input-wrap > input').get_attribute('value')
+        proof = formPage.execute_arrow_value()
         quit = self.homePage.quit_from_system()
 
         assert proof == "3466"
@@ -112,12 +112,12 @@ class Test_DataForm(BaseTest):
         formPage = self.homePage.elect_DFS()
         time.sleep(1)
         time.sleep(2)
-        formPage.select_date_range(TestData.BEGGIN_DATE, TestData.END_DATE)
-        proof_1 = self.driver.find_element_by_css_selector(".ant-picker-range > div:nth-child(1) > input:nth-child(1)").get_attribute("value")
-        proof_2 = self.driver.find_element_by_css_selector("div.ant-picker-input:nth-child(3) > input:nth-child(1)").get_attribute("value")
+        formPage.select_date_range(TestData.BEGIN_DATE, TestData.END_DATE)
+        proof_1 = formPage.getting_value_begin_date()
+        proof_2 = formPage.getting_value_end_date()
         quit = self.homePage.quit_from_system()
 
-        assert proof_1 == TestData.BEGGIN_DATE, proof_2 == TestData.END_DATE
+        assert proof_1 == TestData.BEGIN_DATE, proof_2 == TestData.END_DATE
         assert quit
 
     def test_datePicker_manual(self):
@@ -129,12 +129,12 @@ class Test_DataForm(BaseTest):
         self.driver.find_element_by_css_selector(".ant-picker-input-active > input").click()
         time.sleep(2)
         formPage.select_date_range_manual()
-        time.sleep(5)
-        proof_1 = self.driver.find_element_by_css_selector(".ant-picker-range > div:nth-child(1) > input:nth-child(1)").get_attribute("value")
-        proof_2 = self.driver.find_element_by_css_selector("div.ant-picker-input:nth-child(3) > input:nth-child(1)").get_attribute("value")
+        time.sleep(2)
+        proof_1 = formPage.getting_value_begin_date()
+        proof_2 = formPage.getting_value_end_date()
         quit = self.homePage.quit_from_system()
 
-        assert proof_1 == TestData.BEGGIN_DATE, proof_2 == TestData.END_DATE_MANUAL
+        assert proof_1 == TestData.BEGIN_DATE, proof_2 == TestData.END_DATE_MANUAL
         assert quit
     def test_download_button(self):
         self.loginPage = LoginPage(self.driver)
