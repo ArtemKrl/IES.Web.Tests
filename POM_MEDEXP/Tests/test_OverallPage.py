@@ -93,22 +93,22 @@ class Test_OverallPage(BaseTest):
 
 
 
-    def test_table_type_exp(self):
-        self.loginPage = LoginPage(self.driver)
-        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-        homePage.follow_election()
-        self.homePage = HomePage(self.driver)
-        electionsPage = self.homePage.follow_election()
-        electionsPage.elect_overall()
-        time.sleep(3)
-        electionsPage.choice_type_exp()
-        time.sleep(1)
-        search_data = electionsPage.execute_type_exp(TestData.VALUE_TYPE_EXP)
-        check_clear = electionsPage.clear_type_exp()
-        quit = self.homePage.quit_from_system()
-
-        assert TestData.VALUE_TYPE_EXP == search_data, check_clear
-        assert quit
+    # def test_table_type_exp(self):
+    #     self.loginPage = LoginPage(self.driver)
+    #     homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+    #     homePage.follow_election()
+    #     self.homePage = HomePage(self.driver)
+    #     electionsPage = self.homePage.follow_election()
+    #     electionsPage.elect_overall()
+    #     time.sleep(3)
+    #     electionsPage.choice_type_exp()
+    #     time.sleep(1)
+    #     search_data = electionsPage.execute_type_exp(TestData.VALUE_TYPE_EXP)
+    #     check_clear = electionsPage.clear_type_exp()
+    #     quit = self.homePage.quit_from_system()
+    #
+    #     assert TestData.VALUE_TYPE_EXP == search_data, check_clear
+    #     assert quit
 
     def test_btn_point(self):
         self.loginPage = LoginPage(self.driver)
@@ -127,22 +127,22 @@ class Test_OverallPage(BaseTest):
         assert quit
 
 
-    def test_setting_сolumn(self):
-        self.loginPage = LoginPage(self.driver)
-        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-        homePage.follow_election()
-        self.homePage = HomePage(self.driver)
-        electionsPage = self.homePage.follow_election()
-        electionsPage.elect_overall()
-        electionsPage.open_col_set()
-        electionsPage.multi_checked()
-        electionsPage.check_type_exp()
-        electionsPage.open_col_set()
-        electionsPage.multi_checked()
-        # quit = self.homePage.quit_from_system()
-        #
-        # assert proof == TestData.ATTENTION_TEXT_ERROR
-        # assert quit
+    # def test_setting_сolumn(self):
+    #     self.loginPage = LoginPage(self.driver)
+    #     homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+    #     homePage.follow_election()
+    #     self.homePage = HomePage(self.driver)
+    #     electionsPage = self.homePage.follow_election()
+    #     electionsPage.elect_overall()
+    #     electionsPage.open_col_set()
+    #     electionsPage.multi_checked()
+    #     electionsPage.check_type_exp()
+    #     electionsPage.open_col_set()
+    #     electionsPage.multi_checked()
+    #     # quit = self.homePage.quit_from_system()
+    #     #
+    #     # assert proof == TestData.ATTENTION_TEXT_ERROR
+    #     # assert quit
 
     def test_checkbox_setting_сolumn(self):
         self.loginPage = LoginPage(self.driver)
