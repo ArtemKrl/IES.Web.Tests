@@ -34,7 +34,7 @@ class FormPage(BasePage):
     ITEM_IN_FORM_3 = (By.CSS_SELECTOR, "div.ant-select-selection-overflow-item:nth-child(4)")
 
     CLEAR_DATE = (By.CSS_SELECTOR, "span.ant-picker-clear:nth-child(6)")
-    BEGGIN_DATE = (By.CSS_SELECTOR, ".ant-picker-input-active > input")
+    BEGIN_DATE = (By.CSS_SELECTOR, ".ant-picker-input-active > input")
     END_DATE = (By.CSS_SELECTOR, ".ant-picker-input-active > input")
     SELECT_DAY = (By.CSS_SELECTOR, ".ant-picker-cell-selected > div")
     SWIPE_LEFT = (By.CSS_SELECTOR, "div:nth-child(1) > div > div.ant-picker-header > "
@@ -54,6 +54,10 @@ class FormPage(BasePage):
 
     SELECTOR_VALUE = (By.CSS_SELECTOR, ".ant-input-number-input-wrap > input")
 
+    DATE_BEGIN_VALUE = (By.CSS_SELECTOR, ".ant-picker-range > div:nth-child(1) > input:nth-child(1)")
+    DATE_END_VALUE = (By.CSS_SELECTOR, "div.ant-picker-input:nth-child(3) > input:nth-child(1)")
+
+    ARROW_VALUE = (By.CSS_SELECTOR, ".ant-input-number-input-wrap > input")
 
 
 
@@ -128,7 +132,7 @@ class FormPage(BasePage):
         time.sleep(1)
         self.do_click(self.OPEN_DATEPICKER)
         self.do_click(self.CLEAR_DATE)
-        self.do_send_keys(self.BEGGIN_DATE, beggin_date)
+        self.do_send_keys(self.BEGIN_DATE, beggin_date)
         self.do_click(self.SELECT_DAY)
         self.do_send_keys(self.END_DATE, end_date)
         self.do_click(self.SELECT_DAY)
@@ -149,6 +153,17 @@ class FormPage(BasePage):
         self.do_click(self.SWIPE_LEFT_MIN)
         self.do_click(self.MANUAL_FIRST_NUM)
         self.do_click(self.MANUAL_SECOND_NUM)
+
+    def getting_value_begin_date(self):
+        return self.execute_value(self.DATE_BEGIN_VALUE)
+
+    def getting_value_end_date(self):
+        return self.execute_value(self.DATE_END_VALUE)
+
+    def execute_arrow_value(self):
+        return self.execute_value(self.ARROW_VALUE)
+
+
 
 
 
