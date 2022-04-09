@@ -93,22 +93,22 @@ class Test_OverallPage(BaseTest):
 
 
 
-    # def test_table_type_exp(self):
-    #     self.loginPage = LoginPage(self.driver)
-    #     homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-    #     homePage.follow_election()
-    #     self.homePage = HomePage(self.driver)
-    #     electionsPage = self.homePage.follow_election()
-    #     electionsPage.elect_overall()
-    #     time.sleep(3)
-    #     electionsPage.choice_type_exp()
-    #     time.sleep(1)
-    #     search_data = electionsPage.execute_type_exp(TestData.VALUE_TYPE_EXP)
-    #     check_clear = electionsPage.clear_type_exp()
-    #     quit = self.homePage.quit_from_system()
-    #
-    #     assert TestData.VALUE_TYPE_EXP == search_data, check_clear
-    #     assert quit
+    def test_table_type_exp(self):
+        self.loginPage = LoginPage(self.driver)
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
+        self.homePage = HomePage(self.driver)
+        electionsPage = self.homePage.follow_election()
+        electionsPage.elect_overall()
+        time.sleep(3)
+        electionsPage.choice_type_exp()
+        time.sleep(1)
+        search_data = electionsPage.execute_type_exp(TestData.VALUE_TYPE_EXP)
+        check_clear = electionsPage.clear_type_exp()
+        quit = self.homePage.quit_from_system()
+
+        assert TestData.VALUE_TYPE_EXP == search_data, check_clear
+        assert quit
 
     def test_btn_point(self):
         self.loginPage = LoginPage(self.driver)
@@ -158,6 +158,22 @@ class Test_OverallPage(BaseTest):
         electionsPage.selective_checked()
         time.sleep(1)
 
+
+    def test_table_sorting_wrapper(self):
+        self.loginPage = LoginPage(self.driver)
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
+        self.homePage = HomePage(self.driver)
+        electionsPage = self.homePage.follow_election()
+        electionsPage.elect_overall()
+        electionsPage.tap_sort_wrapper()
+        down_sort = int(electionsPage.getting_small_num())
+        electionsPage.tap_sort_wrapper()
+        up_sort = int(electionsPage.getting_big_num())
+        quit = self.homePage.quit_from_system()
+
+        assert down_sort < up_sort
+        assert quit
 
 
 

@@ -86,6 +86,9 @@ class ElectionsPage(BasePage):
     SAVE_SET = (By.CLASS_NAME, "vt-vc-header-menu-column-settings-btn-save")
 
     TYPE_EXP = (By.CSS_SELECTOR, ".sizer > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div > span")
+    SORTING_WRAPPER_BTN = (By.CSS_SELECTOR, "div:nth-child(2) > div > div.vc-vt-sortingWrapper")
+    SMALL_OR_BIG_NUM = (By.CSS_SELECTOR, ".vc-vt-row:nth-child(1) > div:nth-child(2) > div:nth-child(1)")
+
 
 
     def __init__(self, driver):
@@ -259,36 +262,16 @@ class ElectionsPage(BasePage):
         self.do_click(self.box_3)
         self.do_click(self.box_6)
 
+    def tap_sort_wrapper(self):
+        self.do_click(self.SORTING_WRAPPER_BTN)
 
-        # first_list = Select(self.driver.find_element_by_css_selector(".ant-popover-inner > div > div > div > div > label > span > input"))
-        # first_list.select_by_index(1)
-        # box_2 = first_list[3]
-        # random.choice(box_2).click()  # random select one item
-        # box_3 = first_list[:3]
-        # random.choice(box_3).click()  # random select one item
-        # box_4 = first_list[:4]
-        # random.choice(box_4).click()  # random select one item
-        # box_5 = first_list[:5]
-        # random.choice(box_5).click()  # random select one item
-        # box_6 = first_list[:6]
-        # random.choice(box_6).click()  # random select one item
-        # box_7 = first_list[:7]
-        # random.choice(box_7).click()  # random select one item
-        # box_8 = first_list[:8]
-        # random.choice(box_8).click()  # random select one item
-        # box_9 = first_list[10:10]
-        # random.choice(box_9).click()  # random select one item
+    def getting_small_num(self):
+        return self.get_element_text(self.SMALL_OR_BIG_NUM)
+
+    def getting_big_num(self):
+        return self.get_element_text(self.SMALL_OR_BIG_NUM)
 
 
-
-
-
-
-
-
-
-    # def empty_form(self):
-    #     self.driver.find_element_by_class_name("ant-input-number-input").clear()
 
 
 
