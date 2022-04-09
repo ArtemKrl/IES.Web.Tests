@@ -265,6 +265,9 @@ class ElectionsPage(BasePage):
     def tap_sort_wrapper(self):
         self.do_click(self.SORTING_WRAPPER_BTN)
 
+    def getting_standart_num(self):
+        return self.get_element_text(self.SMALL_OR_BIG_NUM)
+
     def getting_small_num(self):
         return self.get_element_text(self.SMALL_OR_BIG_NUM)
 

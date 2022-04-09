@@ -166,13 +166,19 @@ class Test_OverallPage(BaseTest):
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
         electionsPage.elect_overall()
+        standart_sort = int(electionsPage.getting_standart_num())
         electionsPage.tap_sort_wrapper()
         down_sort = int(electionsPage.getting_small_num())
         electionsPage.tap_sort_wrapper()
         up_sort = int(electionsPage.getting_big_num())
+        electionsPage.tap_sort_wrapper()
+        standart_sort_2 = int(electionsPage.getting_standart_num())
+
         quit = self.homePage.quit_from_system()
 
+
         assert down_sort < up_sort
+        assert standart_sort == standart_sort_2
         assert quit
 
 
