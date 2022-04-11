@@ -76,7 +76,7 @@ class Test_DataForm(BaseTest):
         proof = formPage.execute_arrow_value()
         quit = self.homePage.quit_from_system()
 
-        assert proof == "3466"
+        assert proof == "33"
         assert quit
 
     def test_vc_ArrowBox_wrong_data(self):
@@ -90,7 +90,7 @@ class Test_DataForm(BaseTest):
         proof = formPage.input_wrap()
         quit = self.homePage.quit_from_system()
 
-        assert proof == "3467"
+        assert proof == "34"
         assert quit
 
     def test_BitChoice(self):
@@ -136,6 +136,8 @@ class Test_DataForm(BaseTest):
 
         assert proof_1 == TestData.BEGIN_DATE, proof_2 == TestData.END_DATE_MANUAL
         assert quit
+
+
     def test_download_button(self):
         self.loginPage = LoginPage(self.driver)
         self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)

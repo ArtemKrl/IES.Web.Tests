@@ -1,5 +1,7 @@
 import time
 
+from selenium.webdriver.common.action_chains import ActionChains
+
 from POM_MEDEXP.Pages.HomePage import HomePage
 from POM_MEDEXP.Pages.LoginPage import LoginPage
 from POM_MEDEXP.Tests.test_base import BaseTest
@@ -93,22 +95,22 @@ class Test_OverallPage(BaseTest):
 
 
 
-    def test_table_type_exp(self):
-        self.loginPage = LoginPage(self.driver)
-        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-        homePage.follow_election()
-        self.homePage = HomePage(self.driver)
-        electionsPage = self.homePage.follow_election()
-        electionsPage.elect_overall()
-        time.sleep(3)
-        electionsPage.choice_type_exp()
-        time.sleep(1)
-        search_data = electionsPage.execute_type_exp(TestData.VALUE_TYPE_EXP)
-        check_clear = electionsPage.clear_type_exp()
-        quit = self.homePage.quit_from_system()
-
-        assert TestData.VALUE_TYPE_EXP == search_data, check_clear
-        assert quit
+    # def test_table_type_exp(self):
+    #     self.loginPage = LoginPage(self.driver)
+    #     homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+    #     homePage.follow_election()
+    #     self.homePage = HomePage(self.driver)
+    #     electionsPage = self.homePage.follow_election()
+    #     electionsPage.elect_overall()
+    #     time.sleep(3)
+    #     electionsPage.choice_type_exp()
+    #     time.sleep(1)
+    #     search_data = electionsPage.execute_type_exp(TestData.VALUE_TYPE_EXP)
+    #     check_clear = electionsPage.clear_type_exp()
+    #     quit = self.homePage.quit_from_system()
+    #
+    #     assert TestData.VALUE_TYPE_EXP == search_data, check_clear
+    #     assert quit
 
     def test_btn_point(self):
         self.loginPage = LoginPage(self.driver)
@@ -157,6 +159,10 @@ class Test_OverallPage(BaseTest):
         time.sleep(2)
         electionsPage.selective_checked()
         time.sleep(1)
+        quit = self.homePage.quit_from_system()
+        assert quit
+
+
 
 
     def test_table_sorting_wrapper(self):
@@ -165,6 +171,7 @@ class Test_OverallPage(BaseTest):
         homePage.follow_election()
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
+        time.sleep(1)
         electionsPage.elect_overall()
         standart_sort = int(electionsPage.getting_standart_num())
         electionsPage.tap_sort_wrapper()
@@ -172,15 +179,61 @@ class Test_OverallPage(BaseTest):
         electionsPage.tap_sort_wrapper()
         up_sort = int(electionsPage.getting_big_num())
         electionsPage.tap_sort_wrapper()
+        time.sleep(1)
         standart_sort_2 = int(electionsPage.getting_standart_num())
 
         quit = self.homePage.quit_from_system()
 
 
         assert down_sort < up_sort
-        assert standart_sort == standart_sort_2
+        assert standart_sort > standart_sort_2
         assert quit
 
+    def test_table_checkbox(self):
+        self.loginPage = LoginPage(self.driver)
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
+        self.homePage = HomePage(self.driver)
+        electionsPage = self.homePage.follow_election()
+        electionsPage.elect_overall()
+        time.sleep(1)
+        electionsPage.choice_checkbox()
+        proof_1 = electionsPage.flag_box_check()
 
+        proof_2 = electionsPage.check_cancel_box()
+        electionsPage.cancel_box_table()
+        quit = self.homePage.quit_from_system()
 
+        assert proof_1
+        assert proof_2
+        assert quit
+
+    # def test_table_scroll(self):
+    #     self.loginPage = LoginPage(self.driver)
+    #     homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+    #     homePage.follow_election()
+    #     self.homePage = HomePage(self.driver)
+    #     electionsPage = self.homePage.follow_election()
+    #     electionsPage.elect_overall()
+    #     time.sleep(1)
+    #
+    #     element = self.driver.find_element_by_css_selector("div > div:nth-child(9) > div:nth-child(2) > div")
+    #
+    #     actions = ActionChains(self.driver)
+    #     actions.move_to_element(element).perform()
+    #     time.sleep(10)
+        # electionsPage.choice_checkbox()
+        # proof_1 = electionsPage.flag_box_check()
+        #
+        # proof_2 = electionsPage.check_cancel_box()
+        # electionsPage.cancel_box_table()
+        # quit = self.homePage.quit_from_system()
+        #
+        # assert proof_1
+        # assert proof_2
+        # assert quit
+        #
+        #
+        #
+        #
 

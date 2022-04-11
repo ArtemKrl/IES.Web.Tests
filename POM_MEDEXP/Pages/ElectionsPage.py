@@ -88,6 +88,9 @@ class ElectionsPage(BasePage):
     TYPE_EXP = (By.CSS_SELECTOR, ".sizer > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div > span")
     SORTING_WRAPPER_BTN = (By.CSS_SELECTOR, "div:nth-child(2) > div > div.vc-vt-sortingWrapper")
     SMALL_OR_BIG_NUM = (By.CSS_SELECTOR, ".vc-vt-row:nth-child(1) > div:nth-child(2) > div:nth-child(1)")
+    TABLE_CHECKBOX = (By.CSS_SELECTOR, "div.vc-vt-row:nth-child(2) > div:nth-child(1) > label:nth-child(1)")
+    FLAG_TABLE_CHECKBOX = (By.CLASS_NAME, "ant-checkbox-checked")
+    CANCEL_CHECKBOX = (By.CLASS_NAME, "ant-checkbox-indeterminate")
 
 
 
@@ -273,6 +276,19 @@ class ElectionsPage(BasePage):
 
     def getting_big_num(self):
         return self.get_element_text(self.SMALL_OR_BIG_NUM)
+
+    def choice_checkbox(self):
+        self.do_click(self.TABLE_CHECKBOX)
+
+    def flag_box_check(self):
+        return self.is_visible(self.FLAG_TABLE_CHECKBOX)
+
+    def check_cancel_box(self):
+        return self.is_visible(self.CANCEL_CHECKBOX)
+
+    def cancel_box_table(self):
+        self.do_click(self.CANCEL_CHECKBOX)
+
 
 
 
