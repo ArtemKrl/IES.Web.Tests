@@ -180,7 +180,7 @@ class Test_OverallPage(BaseTest):
         up_sort = int(electionsPage.getting_big_num())
         electionsPage.tap_sort_wrapper()
         time.sleep(1)
-        standart_sort_2 = int(electionsPage.getting_standart_num())
+        standart_sort_2 = int(electionsPage.getting_standard_num())
 
         quit = self.homePage.quit_from_system()
 
@@ -208,20 +208,39 @@ class Test_OverallPage(BaseTest):
         assert proof_2
         assert quit
 
-    # def test_table_scroll(self):
-    #     self.loginPage = LoginPage(self.driver)
-    #     homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-    #     homePage.follow_election()
-    #     self.homePage = HomePage(self.driver)
-    #     electionsPage = self.homePage.follow_election()
-    #     electionsPage.elect_overall()
-    #     time.sleep(1)
-    #
-    #     element = self.driver.find_element_by_css_selector("div > div:nth-child(9) > div:nth-child(2) > div")
-    #
-    #     actions = ActionChains(self.driver)
-    #     actions.move_to_element(element).perform()
-    #     time.sleep(10)
+    def test_table_scroll(self):
+        self.loginPage = LoginPage(self.driver)
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
+        self.homePage = HomePage(self.driver)
+        electionsPage = self.homePage.follow_election()
+        electionsPage.elect_overall()
+        time.sleep(1)
+
+        electionsPage.scroll_into_table()
+
+        electionsPage.choice_checkbox()
+        proof_1 = electionsPage.flag_box_check()
+        time.sleep(2)
+        electionsPage.choice_checkbox()
+        time.sleep(2)
+        electionsPage.choice_new_checkbox()
+
+        electionsPage.check_cancel_box()
+        time.sleep(2)
+
+        proof_2 = electionsPage.check_cancel_box()
+
+        quit = self.homePage.quit_from_system()
+
+        assert proof_1
+        assert proof_2
+        assert quit
+
+        time.sleep(1)
+        # actions = ActionChains(self.driver)
+        # actions.move_to_element(element).perform()
+        # time.sleep(10)
         # electionsPage.choice_checkbox()
         # proof_1 = electionsPage.flag_box_check()
         #

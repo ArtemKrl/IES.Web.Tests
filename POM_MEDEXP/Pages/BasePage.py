@@ -57,4 +57,7 @@ class BasePage:
         EC.visibility_of_element_located(title)
         return self.driver.title
 
+    # def get_scroll_into_element(self, by_locator):
+    #     self.driver.execute_script('document.querySelector(self.)).scroll(0, 9999)')
+
 
