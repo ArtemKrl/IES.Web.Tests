@@ -57,7 +57,8 @@ class BasePage:
         EC.visibility_of_element_located(title)
         return self.driver.title
 
-    # def get_scroll_into_element(self, by_locator):
-    #     self.driver.execute_script('document.querySelector(self.)).scroll(0, 9999)')
-
+    def do_double_click(self, by_locator):
+        element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(by_locator))
+        actionChains = ActionChains(self.driver)
+        actionChains.double_click(element).perform()
 

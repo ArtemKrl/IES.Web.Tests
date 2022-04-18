@@ -237,22 +237,27 @@ class Test_OverallPage(BaseTest):
         assert proof_2
         assert quit
 
-        time.sleep(1)
-        # actions = ActionChains(self.driver)
-        # actions.move_to_element(element).perform()
-        # time.sleep(10)
-        # electionsPage.choice_checkbox()
-        # proof_1 = electionsPage.flag_box_check()
-        #
-        # proof_2 = electionsPage.check_cancel_box()
-        # electionsPage.cancel_box_table()
-        # quit = self.homePage.quit_from_system()
-        #
-        # assert proof_1
-        # assert proof_2
-        # assert quit
-        #
-        #
-        #
-        #
+    def test_create_cancel_election(self):
+        self.loginPage = LoginPage(self.driver)
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
+        self.homePage = HomePage(self.driver)
+        electionsPage = self.homePage.follow_election()
+        electionsPage.elect_overall()
+        electionsPage.send_num_selection(TestData.NUM_SELECTION)
+        time.sleep(2)
+        electionsPage.open_elect_3770()
+        electionsPage.follow_two_step()
+        electionsPage.open_atyashev()
+        electionsPage.open_all_cases()
+        proof_1 = electionsPage.choice_box_for_election(TestData.GOOD_ALLERT_TEXT_ELECT)
+        electionsPage.close_allert()
+        proof_2 = electionsPage.choice_box_for_cancel(TestData.BAD_ALLERT_TEXT_ELECT)
+
+        quit = self.homePage.quit_from_system()
+
+        assert proof_1 == TestData.GOOD_ALLERT_TEXT_ELECT
+        assert proof_2 == TestData.BAD_ALLERT_TEXT_ELECT
+        assert quit
+
 

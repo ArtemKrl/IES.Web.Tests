@@ -93,6 +93,19 @@ class ElectionsPage(BasePage):
     FLAG_TABLE_CHECKBOX = (By.CLASS_NAME, "ant-checkbox-checked")
     CANCEL_CHECKBOX = (By.CLASS_NAME, "ant-checkbox-indeterminate")
 
+    ELECT_3770 = (By.CSS_SELECTOR, ".vc-rows-wrapper > div > div:nth-child(1) > div:nth-child(2) > div")
+
+    ALL_CASES = (By.CSS_SELECTOR, ".vc-csf-margin > div > div:nth-child(1)")
+
+    BOX_FOR_OPERATION_1 = (By.CSS_SELECTOR, ".vc-rows-wrapper > div > div:nth-child(1) > div.vc-vt-sticky-left > label > span")
+    BOX_FOR_OPERATION_2 = (By.CSS_SELECTOR, ".vc-rows-wrapper > div > div:nth-child(2) > div.vc-vt-sticky-left > label > span")
+    CREATE_ELECT = (By.CSS_SELECTOR, ".ant-row > div:nth-child(1) > div > button:nth-child(1)")
+    CANCEL_ELECT = (By.CSS_SELECTOR, ".ant-btn-primary.vc-csf-space")
+
+    CLOSE_ALLERT = (By.CSS_SELECTOR, "a > span > span")
+
+
+
 
 
 
@@ -296,6 +309,37 @@ class ElectionsPage(BasePage):
 
     def choice_new_checkbox(self):
         self.do_click(self.TABLE_CHECKBOX_2)
+
+    def open_elect_3770(self):
+        self.do_double_click(self.ELECT_3770)
+
+    def open_atyashev(self):
+        self.do_double_click(self.ELECT_3770)
+
+    def open_all_cases(self):
+        self.do_click(self.ALL_CASES)
+
+    def choice_box_for_election(self, text):
+        self.do_click(self.BOX_FOR_OPERATION_1)
+        self.do_click(self.BOX_FOR_OPERATION_2)
+        self.do_click(self.CREATE_ELECT)
+        return self.get_element_text(self.ALLERT_TEXT)
+
+    def close_allert(self):
+        self.do_click(self.CLOSE_ALLERT)
+        time.sleep(2)
+
+
+    def choice_box_for_cancel(self, text):
+        self.do_click(self.BOX_FOR_OPERATION_1)
+        self.do_click(self.BOX_FOR_OPERATION_2)
+        self.do_click(self.CANCEL_ELECT)
+        return self.get_element_text(self.ALLERT_TEXT)
+
+
+
+
+
 
 
 
