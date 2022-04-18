@@ -173,20 +173,20 @@ class Test_OverallPage(BaseTest):
         electionsPage = self.homePage.follow_election()
         time.sleep(1)
         electionsPage.elect_overall()
-        standart_sort = int(electionsPage.getting_standart_num())
+        standard_sort = int(electionsPage.getting_standard_num())
         electionsPage.tap_sort_wrapper()
         down_sort = int(electionsPage.getting_small_num())
         electionsPage.tap_sort_wrapper()
         up_sort = int(electionsPage.getting_big_num())
         electionsPage.tap_sort_wrapper()
         time.sleep(1)
-        standart_sort_2 = int(electionsPage.getting_standard_num())
+        standard_sort_2 = int(electionsPage.getting_standard_num())
 
         quit = self.homePage.quit_from_system()
 
 
         assert down_sort < up_sort
-        assert standart_sort > standart_sort_2
+        assert standard_sort > standard_sort_2
         assert quit
 
     def test_table_checkbox(self):
