@@ -22,7 +22,7 @@ class TestData:
     ATTRIBUTE_VALUE = "1"
     WRONG_DATA = "fsdfsd"
 
-    BEGGIN_DATE = "01.01.2018"
+    BEGIN_DATE = "01.01.2018"
     END_DATE = "01.01.2022"
 
     END_DATE_MANUAL = "20.01.2022"
