@@ -186,7 +186,7 @@ class Test_OverallPage(BaseTest):
 
 
         assert down_sort < up_sort
-        assert standard_sort > standard_sort_2
+        assert standard_sort == standard_sort_2
         assert quit
 
     def test_table_checkbox(self):
