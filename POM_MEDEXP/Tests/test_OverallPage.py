@@ -244,7 +244,7 @@ class Test_OverallPage(BaseTest):
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
         electionsPage.elect_overall()
-        electionsPage.send_num_selection(TestData.NUM_SELECTION)
+        electionsPage.send_num_selection(TestData.NUM_SELECTION_3770)
         time.sleep(2)
         electionsPage.open_elect_3770()
         electionsPage.follow_two_step()
@@ -258,6 +258,30 @@ class Test_OverallPage(BaseTest):
 
         assert proof_1 == TestData.GOOD_ALLERT_TEXT_ELECT
         assert proof_2 == TestData.BAD_ALLERT_TEXT_ELECT
+        assert quit
+
+    def test_fact_of_MEE(self):
+        self.loginPage = LoginPage(self.driver)
+        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        homePage.follow_election()
+        self.homePage = HomePage(self.driver)
+        electionsPage = self.homePage.follow_election()
+        electionsPage.elect_overall()
+        electionsPage.send_num_selection(TestData.NUM_SELECTION_1885)
+        time.sleep(1)
+        electionsPage.open_elect_1885()
+        electionsPage.open_bid_1886()
+        time.sleep(1)
+
+        proof_1 = electionsPage.box_put_fact_MEE(TestData.ALLERT_FACT_PUT)
+        electionsPage.close_allert()
+        time.sleep(1)
+        proof_2 = electionsPage.box_cancel_fact_MEE(TestData.ALLERT_FACT_CANCEL)
+
+        quit = self.homePage.quit_from_system()
+
+        assert proof_1 == TestData.ALLERT_FACT_PUT
+        assert proof_2 == TestData.ALLERT_FACT_CANCEL
         assert quit
 
 

@@ -21,7 +21,8 @@ class TestData:
     ERROR_TEXT = "Длина текста больше 5 символов"
     ATTRIBUTE_VALUE = "1"
     WRONG_DATA = "fsdfsd"
-    NUM_SELECTION = "3770"
+    NUM_SELECTION_3770 = "3770"
+    NUM_SELECTION_1885 = "1885"
     VALUE_TYPE_EXP = "МЭК"
     EXEC_NUM = "3467"
 
@@ -43,3 +44,9 @@ class TestData:
     ATTENTION_TEXT_ERROR = "Заполните поле"
     GOOD_ALLERT_TEXT_ELECT = "Законченные случаи успешно отобраны"
     BAD_ALLERT_TEXT_ELECT = "Успешно отменен отбор по законченным случаям"
+
+    ALLERT_FACT_PUT = "Факт проставлен"
+    ALLERT_FACT_CANCEL = "Факт снят"
+
+
+

@@ -93,7 +93,7 @@ class ElectionsPage(BasePage):
     FLAG_TABLE_CHECKBOX = (By.CLASS_NAME, "ant-checkbox-checked")
     CANCEL_CHECKBOX = (By.CLASS_NAME, "ant-checkbox-indeterminate")
 
-    ELECT_3770 = (By.CSS_SELECTOR, ".vc-rows-wrapper > div > div:nth-child(1) > div:nth-child(2) > div")
+    ELECT_FIND = (By.CSS_SELECTOR, ".vc-rows-wrapper > div > div:nth-child(1) > div:nth-child(2) > div")
 
     ALL_CASES = (By.CSS_SELECTOR, ".vc-csf-margin > div > div:nth-child(1)")
 
@@ -101,7 +101,7 @@ class ElectionsPage(BasePage):
     BOX_FOR_OPERATION_2 = (By.CSS_SELECTOR, ".vc-rows-wrapper > div > div:nth-child(2) > div.vc-vt-sticky-left > label > span")
     CREATE_ELECT = (By.CSS_SELECTOR, ".ant-row > div:nth-child(1) > div > button:nth-child(1)")
     CANCEL_ELECT = (By.CSS_SELECTOR, ".ant-btn-primary.vc-csf-space")
-
+    PUT_CANCEL_FACT_MEE = (By.CSS_SELECTOR, "div:nth-child(2) > div > div:nth-child(1) > button")
     CLOSE_ALLERT = (By.CSS_SELECTOR, "a > span > span")
 
 
@@ -188,8 +188,8 @@ class ElectionsPage(BasePage):
         return self.get_element_text(self.ALLERT_TEXT)
 
 
-    def send_num_selection(self, num_selection):
-        self.do_send_keys(self.TABLE_FORM_NUM_ELECTION, num_selection)
+    def send_num_selection(self, num_selection_3770):
+        self.do_send_keys(self.TABLE_FORM_NUM_ELECTION, num_selection_3770)
 
     def execute_search_num(self, text):
         return self.get_element_text(self.SEARCH_ELECTION_NUM)
@@ -311,10 +311,16 @@ class ElectionsPage(BasePage):
         self.do_click(self.TABLE_CHECKBOX_2)
 
     def open_elect_3770(self):
-        self.do_double_click(self.ELECT_3770)
+        self.do_double_click(self.ELECT_FIND)
+
+    def open_elect_1885(self):
+        self.do_double_click(self.ELECT_FIND)
+
+    def open_bid_1886(self):
+        self.do_double_click(self.ELECT_FIND)
 
     def open_atyashev(self):
-        self.do_double_click(self.ELECT_3770)
+        self.do_double_click(self.ELECT_FIND)
 
     def open_all_cases(self):
         self.do_click(self.ALL_CASES)
@@ -323,6 +329,18 @@ class ElectionsPage(BasePage):
         self.do_click(self.BOX_FOR_OPERATION_1)
         self.do_click(self.BOX_FOR_OPERATION_2)
         self.do_click(self.CREATE_ELECT)
+        return self.get_element_text(self.ALLERT_TEXT)
+
+    def box_put_fact_MEE(self, text):
+        self.do_click(self.BOX_FOR_OPERATION_1)
+        self.do_click(self.BOX_FOR_OPERATION_2)
+        self.do_click(self.PUT_CANCEL_FACT_MEE)
+        return self.get_element_text(self.ALLERT_TEXT)
+
+    def box_cancel_fact_MEE(self, text):
+        # self.do_click(self.BOX_FOR_OPERATION_1)
+        # self.do_click(self.BOX_FOR_OPERATION_2)
+        self.do_click(self.PUT_CANCEL_FACT_MEE)
         return self.get_element_text(self.ALLERT_TEXT)
 
     def close_allert(self):
