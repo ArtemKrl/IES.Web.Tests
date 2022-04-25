@@ -85,10 +85,10 @@ class Test_OverallPage(BaseTest):
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
         electionsPage.elect_overall()
-        electionsPage.send_num_selection(TestData.NUM_SELECTION)
+        electionsPage.send_num_selection(TestData.NUM_SELECTION_3770)
         time.sleep(1)
-        search_data = electionsPage.execute_search_num(TestData.NUM_SELECTION)
-        assert TestData.NUM_SELECTION == search_data
+        search_data = electionsPage.execute_search_num(TestData.NUM_SELECTION_3770)
+        assert TestData.NUM_SELECTION_3770 == search_data
         electionsPage.reset_set()
         quit = self.homePage.quit_from_system()
         assert quit
@@ -267,8 +267,11 @@ class Test_OverallPage(BaseTest):
         self.homePage = HomePage(self.driver)
         electionsPage = self.homePage.follow_election()
         electionsPage.elect_overall()
+        electionsPage.reset_set()
+
         electionsPage.send_num_selection(TestData.NUM_SELECTION_1885)
         time.sleep(1)
+
         electionsPage.open_elect_1885()
         electionsPage.open_bid_1886()
         time.sleep(1)
