@@ -93,6 +93,11 @@ class ElectionsPage(BasePage):
     FLAG_TABLE_CHECKBOX = (By.CLASS_NAME, "ant-checkbox-checked")
     CANCEL_CHECKBOX = (By.CLASS_NAME, "ant-checkbox-indeterminate")
 
+    TAP_CHBOX_1 = (By.CSS_SELECTOR, "div.vc-vt-row:nth-child(2) > div:nth-child(1) > label:nth-child(1) > "
+                                    "span:nth-child(1)")
+    TAP_CHBOX_2 = (By.CSS_SELECTOR, "div:nth-child(2) > div > div > .vc-vt-wrapper > .vc-vt-grid-wrapper > .sizer > "
+                                    ".vc-rows-wrapper > div > div:nth-child(1) > .vc-vt-sticky-left > label > span")
+
     ELECT_FIND = (By.CSS_SELECTOR, ".vc-rows-wrapper > div > div:nth-child(1) > div:nth-child(2) > div")
 
     ALL_CASES = (By.CSS_SELECTOR, ".vc-csf-margin > div > div:nth-child(1)")
@@ -162,21 +167,26 @@ class ElectionsPage(BasePage):
     def check_error_allert(self, text):
        return self.get_element_text(self.ERROR_TEXT)
 
-    def random_select_second_list(self):
-        first_list = self.driver.find_elements_by_class_name("ant-checkbox-input")
-        choice_here_1 = first_list[4:5]
-        random.choice(choice_here_1).click()  # random select one item
+    # def random_select_second_list(self):
+    #     first_list = self.driver.find_elements_by_class_name("ant-checkbox-input")
+    #     choice_here_1 = first_list[4:5]
+    #     random.choice(choice_here_1).click()  # random select one item
+    #
+    #     choice_here_2 = first_list[6:]
+    #     random.choice(choice_here_2).click()  # random select one item
+    #     choice_here_3 = first_list[7:8]
+    #     random.choice(choice_here_3).click()  # random select one item
+    #     time.sleep(1)
+    #     second_list = self.driver.find_elements_by_class_name("ant-checkbox-input")
+    #     choice_here_3 = second_list[10:12]
+    #     random.choice(choice_here_3).click()  # random select one item
+    #     choice_here_4 = second_list[13:14]
+    #     random.choice(choice_here_4).click()  # random select one item
 
-        choice_here_2 = first_list[6:]
-        random.choice(choice_here_2).click()  # random select one item
-        choice_here_3 = first_list[7:8]
-        random.choice(choice_here_3).click()  # random select one item
-        time.sleep(1)
-        second_list = self.driver.find_elements_by_class_name("ant-checkbox-input")
-        choice_here_3 = second_list[10:12]
-        random.choice(choice_here_3).click()  # random select one item
-        choice_here_4 = second_list[13:14]
-        random.choice(choice_here_4).click()  # random select one item
+    def tap_check_box(self):
+        self.do_click(self.TAP_CHBOX_1)
+        self.do_click(self.TAP_CHBOX_2)
+
 
     def push_select_button(self):
         self.do_click(self.SELECT_BUTTON)
