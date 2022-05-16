@@ -104,7 +104,7 @@ class ElectionsPage(BasePage):
 
     BOX_FOR_OPERATION_1 = (By.CSS_SELECTOR, ".vc-rows-wrapper > div > div:nth-child(1) > div.vc-vt-sticky-left > label > span")
     BOX_FOR_OPERATION_2 = (By.CSS_SELECTOR, ".vc-rows-wrapper > div > div:nth-child(2) > div.vc-vt-sticky-left > label > span")
-    CREATE_ELECT = (By.CSS_SELECTOR, ".ant-row > div:nth-child(1) > div > button:nth-child(1)")
+    CREATE_ELECT = (By.CSS_SELECTOR, ".ant-btn-primary")
     CANCEL_ELECT = (By.CSS_SELECTOR, ".ant-btn-primary.vc-csf-space")
     PUT_CANCEL_FACT_MEE = (By.CSS_SELECTOR, "div:nth-child(2) > div > div:nth-child(1) > button")
     CLOSE_ALLERT = (By.CSS_SELECTOR, "a > span > span")
