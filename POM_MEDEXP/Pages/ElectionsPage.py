@@ -106,7 +106,7 @@ class ElectionsPage(BasePage):
     BOX_FOR_OPERATION_2 = (By.CSS_SELECTOR, ".vc-rows-wrapper > div > div:nth-child(2) > div.vc-vt-sticky-left > label > span")
     CREATE_ELECT = (By.CSS_SELECTOR, ".ant-row > div:nth-child(1) > div > button:nth-child(1)")
     CANCEL_ELECT = (By.CSS_SELECTOR, ".ant-btn-primary.vc-csf-space")
-    PUT_CANCEL_FACT_MEE = (By.CSS_SELECTOR, "div:nth-child(2) > div > div:nth-child(1) > button")
+    PUT_CANCEL_FACT_MEE = (By.CSS_SELECTOR, ".vc-rfef-tabsWrapper > div:nth-child(2) > div > div:nth-child(1) > button")
     CLOSE_ALLERT = (By.CSS_SELECTOR, "a > span > span")
 
 
@@ -342,6 +342,7 @@ class ElectionsPage(BasePage):
         return self.get_element_text(self.ALLERT_TEXT)
 
     def box_put_fact_MEE(self, text):
+        # self.do_click(self.ALL_CASES)
         self.do_click(self.BOX_FOR_OPERATION_1)
         self.do_click(self.BOX_FOR_OPERATION_2)
         self.do_click(self.PUT_CANCEL_FACT_MEE)

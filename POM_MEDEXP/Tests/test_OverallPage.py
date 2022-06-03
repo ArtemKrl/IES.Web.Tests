@@ -274,6 +274,7 @@ class Test_OverallPage(BaseTest):
         time.sleep(1)
 
         electionsPage.open_elect_1885()
+        electionsPage.follow_third_step()
         electionsPage.open_bid_1886()
         time.sleep(1)
 
