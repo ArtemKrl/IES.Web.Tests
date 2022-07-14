@@ -10,14 +10,13 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class HomePage(BasePage):
 
-    GENERAL_DEBUG = (By.CSS_SELECTOR, 'li:nth-child(2)')
-    GENERAL_ADM = (By.CSS_SELECTOR, 'li:nth-child(2) > span.anticon.ant-menu-item-icon')
+    GENERAL_ADM = (By.CSS_SELECTOR, 'li:nth-child(2)')
     GENERAL_EXP = (By.CSS_SELECTOR, ".ant-layout-sider.ant-layout-sider-dark.ant-layout-sider-has-trigger > "
                                     "div.ant-layout-sider-children > ul > li:nth-child(1) > "
                                     "span.anticon.ant-menu-item-icon > span")
 
     ADDITIONAL_ELECTION = (By.CSS_SELECTOR, '.ant-layout-sider-light.ant-layout-sider-has-trigger > div.ant-layout-sider-children > ul > li:nth-child(1) > span.anticon.ant-menu-item-icon')
-    ADDITIONAL_DFS = (By.CSS_SELECTOR, '.ant-menu-light > li:nth-child(2) > span:nth-child(1)')
+    ADDITIONAL_DFS = (By.CSS_SELECTOR, 'aside:nth-child(3) > div > ul > li:nth-child(2)')
     DFS_PAGE = (By.CSS_SELECTOR, "p:nth-child(1)")
     VITACORE_LOGO = (By.CSS_SELECTOR, ".vc-nr-logo > svg")
 
@@ -36,8 +35,6 @@ class HomePage(BasePage):
         return self.is_visible(self.VITACORE_LOGO)
 
     def elect_DFS(self):
-        if self.is_visible(self.GENERAL_DEBUG):
-            self.do_click(self.GENERAL_DEBUG)
         if self.is_visible(self.GENERAL_ADM):
             self.do_click(self.GENERAL_ADM)
         if self.is_visible(self.ADDITIONAL_DFS):
