@@ -10,6 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class HomePage(BasePage):
 
+    GENERAL_DEBUG = (By.CSS_SELECTOR, 'li:nth-child(2)')
     GENERAL_ADM = (By.CSS_SELECTOR, 'li:nth-child(2) > span.anticon.ant-menu-item-icon')
     GENERAL_EXP = (By.CSS_SELECTOR, ".ant-layout-sider.ant-layout-sider-dark.ant-layout-sider-has-trigger > "
                                     "div.ant-layout-sider-children > ul > li:nth-child(1) > "
@@ -35,6 +36,8 @@ class HomePage(BasePage):
         return self.is_visible(self.VITACORE_LOGO)
 
     def elect_DFS(self):
+        if self.is_visible(self.GENERAL_DEBUG):
+            self.do_click(self.GENERAL_DEBUG)
         if self.is_visible(self.GENERAL_ADM):
             self.do_click(self.GENERAL_ADM)
         if self.is_visible(self.ADDITIONAL_DFS):
