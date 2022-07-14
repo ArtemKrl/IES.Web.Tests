@@ -20,7 +20,7 @@ class HomePage(BasePage):
     DFS_PAGE = (By.CSS_SELECTOR, "p:nth-child(1)")
     VITACORE_LOGO = (By.CSS_SELECTOR, ".vc-nr-logo > svg")
 
-    QUIT_SYSTEM = (By.CSS_SELECTOR, ".anticon-logout.ant-menu-item-icon")
+    QUIT_SYSTEM = (By.CSS_SELECTOR, "li:nth-child(6)")
     LOGIN_PICTURE = (By.CSS_SELECTOR, "#login-page > div > div")
 
 
