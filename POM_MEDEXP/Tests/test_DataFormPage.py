@@ -138,13 +138,13 @@ class Test_DataForm(BaseTest):
         assert quit
 
 
-    def test_download_button(self):
-        self.loginPage = LoginPage(self.driver)
-        self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-        self.homePage = HomePage(self.driver)
-        formPage = self.homePage.elect_DFS()
-        proof = formPage.push_btn_download()
-        quit = self.homePage.quit_from_system()
+    # def test_download_button(self):
+    #     self.loginPage = LoginPage(self.driver)
+    #     self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+    #     self.homePage = HomePage(self.driver)
+    #     formPage = self.homePage.elect_DFS()
+    #     proof = formPage.push_btn_download()
+    #     quit = self.homePage.quit_from_system()
 
-        assert proof, quit
+    #     assert proof, quit
 
