@@ -10,8 +10,7 @@ from POM_MEDEXP.Pages.HomePage import HomePage
 class Test_Home(BaseTest):
 
     def test_home_page_logo(self):
-        assert True
-        return
+
         self.loginPage = LoginPage(self.driver)
         homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
         self.homePage = HomePage(self.driver)
@@ -23,8 +22,7 @@ class Test_Home(BaseTest):
 
 
     def test_follow_to_DFS(self):
-        assert True
-        return
+
         self.loginPage = LoginPage(self.driver)
         self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
         self.homePage = HomePage(self.driver)
