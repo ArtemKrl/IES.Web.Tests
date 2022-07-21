@@ -114,6 +114,7 @@ class FormPage(BasePage):
         return self.execute_value(self.SELECTOR_VALUE)
 
     def elect_bit_item(self):
+        time.sleep(1)
         self.do_click(self.BIT_MENU)
         self.do_click(self.BIT_ITEM_0)
         self.do_click(self.BIT_ITEM_1)

@@ -27,12 +27,11 @@ class ElectionsPage(BasePage):
     THREE_STEP_ELECT = (By.CSS_SELECTOR, "div:nth-child(3) > div > div.ant-steps-item-content > div")
 
     TYPE_MENU_OPEN = (By.CSS_SELECTOR, "div:nth-child(1) > div:nth-child(1) > div > div.ant-col.ant-form-item-control > div > div")
-    ITEM_TYPE_MENU = (By.XPATH, "/html/body/div[2]/div/div/div/div/div/div[2]/div[1]/div[2]/div/div[1]/div[3]/div")
+    ITEM_TYPE_MENU = (By.CSS_SELECTOR, "div:nth-child(6) > div > div > div > div > div > div.vc-vt-grid-wrapper > div.sizer > div.vc-rows-wrapper > div > div:nth-child(1)")
 
     SMO_MENU_OPEN = (By.CSS_SELECTOR, "div:nth-child(1) > div:nth-child(2) > div > div.ant-col.ant-form-item-control "
                                       "> div > div")
-    ITEM_SMO_MENU = (By.CSS_SELECTOR, ".ant-select-dropdown > div > div > div > div:nth-child(2) > div > "
-                                      "div:nth-child(2) > div > div:nth-child(1)")
+    ITEM_SMO_MENU = (By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div > div > div.vc-vt-grid-wrapper > div.sizer > .vc-rows-wrapper > div > div:nth-child(1)")
 
     FIRST_LIST_CHECKBOX = (By.CLASS_NAME, "ant-checkbox-input")
     SECOND_LIST_CHECKBOX = (By.CLASS_NAME, "ant-checkbox-input")
@@ -159,6 +158,7 @@ class ElectionsPage(BasePage):
 
     def fill_smo_menu(self):
         self.do_click(self.SMO_MENU_OPEN)
+        time.sleep(1)
         self.do_click(self.ITEM_SMO_MENU)
 
     def select_items_first_list(self):
@@ -333,6 +333,7 @@ class ElectionsPage(BasePage):
         self.do_double_click(self.ELECT_FIND)
 
     def open_all_cases(self):
+        time.sleep(1)
         self.do_click(self.ALL_CASES)
 
     def choice_box_for_election(self, text):

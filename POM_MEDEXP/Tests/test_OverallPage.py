@@ -142,10 +142,10 @@ class Test_OverallPage(BaseTest):
     #     electionsPage.check_type_exp()
     #     electionsPage.open_col_set()
     #     electionsPage.multi_checked()
-    #     # quit = self.homePage.quit_from_system()
-    #     #
-    #     # assert proof == TestData.ATTENTION_TEXT_ERROR
-    #     # assert quit
+    #     quit = self.homePage.quit_from_system()
+
+        # assert proof == TestData.ATTENTION_TEXT_ERROR
+        # assert quit
 
     def test_checkbox_setting_сolumn(self):
         self.loginPage = LoginPage(self.driver)

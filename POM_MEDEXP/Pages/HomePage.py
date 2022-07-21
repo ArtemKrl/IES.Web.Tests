@@ -11,16 +11,14 @@ from selenium.webdriver.support import expected_conditions as EC
 class HomePage(BasePage):
 
     GENERAL_ADM = (By.CSS_SELECTOR, 'li:nth-child(2) > span.anticon.ant-menu-item-icon')
-    GENERAL_EXP = (By.CSS_SELECTOR, ".ant-layout-sider.ant-layout-sider-dark.ant-layout-sider-has-trigger > "
-                                    "div.ant-layout-sider-children > ul > li:nth-child(1) > "
-                                    "span.anticon.ant-menu-item-icon > span")
+    GENERAL_EXP = (By.CSS_SELECTOR, "li:nth-child(1) > span.anticon.ant-menu-item-icon > span")
 
     ADDITIONAL_ELECTION = (By.CSS_SELECTOR, '.ant-layout-sider-light.ant-layout-sider-has-trigger > div.ant-layout-sider-children > ul > li:nth-child(1) > span.anticon.ant-menu-item-icon')
-    ADDITIONAL_DFS = (By.CSS_SELECTOR, '.ant-menu-light > li:nth-child(2) > span:nth-child(1)')
+    ADDITIONAL_DFS = (By.CSS_SELECTOR, '.siderSecond > div.ant-layout-sider-children > ul > li:nth-child(2) > span.anticon')
     DFS_PAGE = (By.CSS_SELECTOR, "p:nth-child(1)")
-    VITACORE_LOGO = (By.CSS_SELECTOR, ".vc-nr-logo > svg")
+    VITACORE_LOGO = (By.CSS_SELECTOR, ".vc-nr-logo > div > svg")
 
-    QUIT_SYSTEM = (By.CSS_SELECTOR, ".anticon-logout.ant-menu-item-icon")
+    QUIT_SYSTEM = (By.CSS_SELECTOR, "li:nth-child(6) > svg")
     LOGIN_PICTURE = (By.CSS_SELECTOR, "#login-page > div > div")
 
 

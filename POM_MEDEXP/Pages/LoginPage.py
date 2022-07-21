@@ -16,7 +16,7 @@ class LoginPage(BasePage):
     PASSWORD = (By.CSS_SELECTOR, "#normal_login_password")
     LOGIN_BUTTON = (By.CSS_SELECTOR, "button")
     SIGNUP_LINK = (By.CSS_SELECTOR, "button > span")
-    VITACORE_LOGO = (By.CSS_SELECTOR, ".vc-nr-logo > svg")
+    VITACORE_LOGO = (By.CSS_SELECTOR, ".vc-nr-logo > div > svg")
 
     """Конструктор класса страницы"""
 
