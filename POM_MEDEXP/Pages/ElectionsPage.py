@@ -211,12 +211,15 @@ class ElectionsPage(BasePage):
         self.do_click(self.EXP_CHECKBOX)
 
     def generate_req(self):
+        self.is_visible(self.GENERATE_REQ)
         self.do_click(self.GENERATE_REQ)
 
     def breakdown_mo(self):
+        self.is_visible(self.MO_CHECKBOX)
         self.do_click(self.MO_CHECKBOX)
 
     def go_generate_req(self):
+        self.is_visible(self.CREATE_REQ)
         self.do_click(self.CREATE_REQ)
 
     def end_election(self):
