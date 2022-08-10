@@ -29,7 +29,7 @@ class ElectionsPage(BasePage):
     TYPE_MENU_OPEN = (By.CSS_SELECTOR, "div:nth-child(1) > div:nth-child(1) > div > div.ant-col.ant-form-item-control > div > div")
     ITEM_TYPE_MENU = (By.CSS_SELECTOR, "div:nth-child(6) > div > div > div > div > div > div.vc-vt-grid-wrapper > div.sizer > div.vc-rows-wrapper > div > div:nth-child(1)")
 
-    SMO_MENU_OPEN = (By.CSS_SELECTOR, "div:nth-child(1) > div:nth-child(2) > div > div.ant-col.ant-form-item-control "
+    SMO_MENU_OPEN = (By.CSS_SELECTOR, "div:nth-child(1) > div:nth-child(2) > div > div.ant-col.ant-form-item-control"
                                       "> div > div")
     ITEM_SMO_MENU = (By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div > div > div.vc-vt-grid-wrapper > div.sizer > .vc-rows-wrapper > div > div:nth-child(1)")
 
@@ -53,9 +53,7 @@ class ElectionsPage(BasePage):
     ITEM_SYS_DOTS = (By.CSS_SELECTOR, "div.vc-vt-row:nth-child(1) > div:nth-child(4) > button:nth-child(1) > span:nth-child(1)")
     ITEM_SYS_OPEN = (By.CSS_SELECTOR, ".vc-context-list > li:nth-child(1) > button:nth-child(1) > span:nth-child(2)")
     END_EVENTS = (By.CSS_SELECTOR, "div.vc-csf-filtersGroupItem:nth-child(1)")
-    TYPE_EXP = (By.CSS_SELECTOR, ".sizer > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) "
-                                 "> div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > "
-                                 "div:nth-child(1)")
+    TYPE_EXP = (By.CSS_SELECTOR, ".sizer > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div > span")
     MEE_ITEM = (By.CSS_SELECTOR, ".rc-virtual-list-holder > div > div > div:nth-child(2) > div")
     MEK_ITEM = (By.CSS_SELECTOR, ".rc-virtual-list-holder > div > div > div:nth-child(1) > div")
     VALUE_TABLE = (By.CSS_SELECTOR, "div.vc-vt-row:nth-child(1) > div:nth-child(3) > div:nth-child(1)")
@@ -73,14 +71,14 @@ class ElectionsPage(BasePage):
     COLUMN_SET = (By.CLASS_NAME, "column_settings")
     CHECKBOXES_COL_SET = (By.CSS_SELECTOR, ".ant-popover-inner > div > div > div > div > label > span > input")
 
-    box_1 = (By.CSS_SELECTOR, ".ant-popover-inner > div > div > div:nth-child(2) > div:nth-child(1) > label > span")
-    box_2 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(2) > label > span")
-    box_3 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(3) > label > span")
-    box_4 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(4) > label > span")
-    box_5 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(5) > label > span")
-    box_6 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(6) > label > span")
-    box_7 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(7) > label > span")
-    box_8 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(8) > label > span")
+    BOX_1 = (By.CSS_SELECTOR, ".ant-popover-inner > div > div > div:nth-child(2) > div:nth-child(1) > label > span")
+    BOX_2 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(2) > label > span")
+    BOX_3 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(3) > label > span")
+    BOX_4 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(4) > label > span")
+    BOX_5 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(5) > label > span")
+    BOX_6 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(6) > label > span")
+    BOX_7 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(7) > label > span")
+    BOX_8 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(8) > label > span")
 
     SAVE_SET = (By.CLASS_NAME, "vt-vc-header-menu-column-settings-btn-save")
 
@@ -275,23 +273,24 @@ class ElectionsPage(BasePage):
         self.do_click(self.COLUMN_SET)
 
     def multi_checked(self):
-        self.do_click(self.box_2)
-        self.do_click(self.box_3)
-        self.do_click(self.box_4)
-        self.do_click(self.box_5)
-        self.do_click(self.box_6)
-        self.do_click(self.box_7)
-        self.do_click(self.box_8)
+        self.do_click(self.BOX_1)
+        self.do_click(self.BOX_3)
+        self.do_click(self.BOX_4)
+        self.do_click(self.BOX_5)
+        self.do_click(self.BOX_6)
+        self.do_click(self.BOX_7)
+        self.do_click(self.BOX_8)
 
         self.do_click(self.SAVE_SET)
 
     def check_type_exp(self):
-        self.is_visible(self.TYPE_EXP)
+        time.sleep(1)
+        return self.get_title(self.TYPE_EXP)
 
     def selective_checked(self):
-        self.do_click(self.box_1)
-        self.do_click(self.box_3)
-        self.do_click(self.box_6)
+        self.do_click(self.BOX_1)
+        self.do_click(self.BOX_3)
+        self.do_click(self.BOX_6)
 
     def tap_sort_wrapper(self):
         self.do_click(self.SORTING_WRAPPER_BTN)
