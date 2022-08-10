@@ -134,23 +134,23 @@ class Test_OverallPage(BaseTest):
         assert quit
 
 
-    def test_setting_сolumn(self):
-        self.loginPage = LoginPage(self.driver)
-        homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-        homePage.follow_election()
-        self.homePage = HomePage(self.driver)
-        electionsPage = self.homePage.follow_election()
-        electionsPage.elect_overall()
-        electionsPage.open_col_set()
-        electionsPage.multi_checked()
-        electionsPage.get_title(TestData.EXP_TITLE)
-        electionsPage.open_col_set()
-        electionsPage.open_col_set()
-        electionsPage.multi_checked()
-        quit = self.homePage.quit_from_system()
+    # def test_setting_сolumn(self):
+    #     self.loginPage = LoginPage(self.driver)
+    #     homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+    #     homePage.follow_election()
+    #     self.homePage = HomePage(self.driver)
+    #     electionsPage = self.homePage.follow_election()
+    #     electionsPage.elect_overall()
+    #     electionsPage.open_col_set()
+    #     electionsPage.multi_checked()
+    #     electionsPage.get_title(TestData.EXP_TITLE)
+    #     electionsPage.open_col_set()
+    #     electionsPage.open_col_set()
+    #     electionsPage.multi_checked()
+    #     quit = self.homePage.quit_from_system()
 
         # assert proof == TestData.ATTENTION_TEXT_ERROR
-        assert quit
+        # assert quit
 
     def test_checkbox_setting_сolumn(self):
 
