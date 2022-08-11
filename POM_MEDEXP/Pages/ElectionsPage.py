@@ -105,7 +105,7 @@ class ElectionsPage(BasePage):
     CANCEL_ELECT = (By.CSS_SELECTOR, ".ant-btn-primary.vc-csf-space")
     PUT_CANCEL_FACT_MEE = (By.CSS_SELECTOR, ".vc-rfef-tabsWrapper > div:nth-child(2) > div > div:nth-child(1) > button")
     CLOSE_ALLERT = (By.CSS_SELECTOR, "a > span > span")
-
+    EXP_TITLE = (By.CSS_SELECTOR, ".vc-vt-hc-header-title")
 
 
 
@@ -286,6 +286,9 @@ class ElectionsPage(BasePage):
     def check_type_exp(self):
         time.sleep(1)
         return self.get_title(self.TYPE_EXP)
+
+    def check_exp_column(self, text):
+        return self.get_element_text(self.EXP_TITLE)
 
     def selective_checked(self):
         self.do_click(self.BOX_1)
