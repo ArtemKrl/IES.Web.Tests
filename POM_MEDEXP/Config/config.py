@@ -17,6 +17,7 @@ class TestData:
 
     LOGIN_PAGE_TITLE = 'Медэксперт'
     HOME_PAGE_TITLE = 'Медэксперт'
+    EXP_TITLE = "Вид экспертизы"
     DFS_TEXT = "Пояснения:"
     ERROR_TEXT = "Длина текста больше 5 символов"
     ATTRIBUTE_VALUE = "1"
