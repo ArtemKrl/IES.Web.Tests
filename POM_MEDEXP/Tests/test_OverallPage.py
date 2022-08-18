@@ -15,37 +15,39 @@ from POM_MEDEXP.Pages.OverallPage import *
 class Test_OverallPage(BaseTest):
 
     # def test_visibility_allert(self):
-    #     self.loginPage = LoginPage(self.driver)
-    #     homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-    #     homePage.follow_election()
-    #     self.homePage = HomePage(self.driver)
-    #     electionsPage = self.homePage.follow_election()
-    #     electionsPage.elect_overall()
-    #     electionsPage.create_new_election()
-    #     electionsPage.fill_type_menu()
-    #     time.sleep(1)
-    #     electionsPage.fill_smo_menu()
-    #     formPage = FormPage(self.driver)
-    #     electionsPage.untried_checkbox()
-    #     formPage.select_date_range(TestData.BEGIN_DATE, TestData.END_DATE)
-    #     # electionsPage.random_select_second_list()
-    #     electionsPage.tap_check_box()
-    #     electionsPage.push_select_button()
-    #     proof_1 = electionsPage.text_good_allert(TestData.TEXT_OF_ALLERT)
-    #     electionsPage.check_good_allert()
-    #     time.sleep(5)
-    #     electionsPage.exp_checkbox()
-    #     electionsPage.generate_req()
-    #     electionsPage.breakdown_mo()
-    #     electionsPage.go_generate_req()
-    #     proof_2 = electionsPage.check_progress_bar()
-    #     electionsPage.end_election()
+    #     try:
+    #         self.loginPage = LoginPage(self.driver)
+    #         homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+    #         homePage.follow_election()
+    #         self.homePage = HomePage(self.driver)
+    #         electionsPage = self.homePage.follow_election()
+    #         electionsPage.elect_overall()
+    #         electionsPage.create_new_election()
+    #         electionsPage.fill_type_menu()
+    #         time.sleep(1)
+    #         electionsPage.fill_smo_menu()
+    #         formPage = FormPage(self.driver)
+    #         electionsPage.untried_checkbox()
+    #         formPage.select_date_range(TestData.BEGIN_DATE, TestData.END_DATE)
+    #         # electionsPage.random_select_second_list()
+    #         electionsPage.tap_check_box()
+    #         electionsPage.push_select_button()
+    #         proof_1 = electionsPage.text_good_allert(TestData.TEXT_OF_ALLERT)
+    #         electionsPage.check_good_allert()
+    #         time.sleep(5)
+    #         electionsPage.exp_checkbox()
+    #         electionsPage.generate_req()
+    #         electionsPage.breakdown_mo()
+    #         electionsPage.go_generate_req()
+    #         proof_2 = electionsPage.check_progress_bar()
+    #         electionsPage.end_election()
     #
-    #     proof_3 = electionsPage.allert_notice_check()
-    #     quit = self.homePage.quit_from_system()
-    #
-    #     assert proof_1 == TestData.TEXT_OF_ALLERT, proof_2
-    #     assert proof_3, quit
+    #         proof_3 = electionsPage.allert_notice_check()
+    #         assert proof_1 == TestData.TEXT_OF_ALLERT, proof_2
+    #         assert proof_3
+    #     finally:
+    #         quit = self.homePage.quit_from_system()
+    #         assert quit
 
     def test_empty_form(self):
         try:
@@ -149,11 +151,11 @@ class Test_OverallPage(BaseTest):
             electionsPage.elect_overall()
             electionsPage.open_col_set()
             electionsPage.multi_checked()
-            #proof = electionsPage.check_exp_column(TestData.EXP_TITLE)
+            proof = electionsPage.check_exp_column(TestData.EXP_TITLE)
             time.sleep(1)
             electionsPage.open_col_set()
             electionsPage.multi_checked()
-            #assert proof == TestData.EXP_TITLE
+            assert proof == TestData.EXP_TITLE
 
         finally:
             quit = self.homePage.quit_from_system()
@@ -267,6 +269,7 @@ class Test_OverallPage(BaseTest):
             self.homePage = HomePage(self.driver)
             electionsPage = self.homePage.follow_election()
             electionsPage.elect_overall()
+            time.sleep(1)
             electionsPage.send_num_selection(TestData.NUM_SELECTION_3770)
             time.sleep(2)
             electionsPage.open_elect_3770()
@@ -282,32 +285,37 @@ class Test_OverallPage(BaseTest):
             quit = self.homePage.quit_from_system()
             assert quit
 
-    def test_fact_of_MEE(self):
-        try:
-            self.loginPage = LoginPage(self.driver)
-            homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-            homePage.follow_election()
-            self.homePage = HomePage(self.driver)
-            electionsPage = self.homePage.follow_election()
-            electionsPage.elect_overall()
-            electionsPage.reset_set()
-
-            electionsPage.send_num_selection(TestData.NUM_SELECTION_1885)
-            time.sleep(1)
-
-            electionsPage.open_elect_1885()
-            electionsPage.follow_third_step()
-            electionsPage.open_bid_1886()
-            time.sleep(1)
-
-            proof_1 = electionsPage.box_put_fact_MEE(TestData.ALLERT_FACT_PUT)
-            electionsPage.close_allert()
-            time.sleep(1)
-            proof_2 = electionsPage.box_cancel_fact_MEE(TestData.ALLERT_FACT_CANCEL)
-            assert proof_1 == TestData.ALLERT_FACT_PUT
-            assert proof_2 == TestData.ALLERT_FACT_CANCEL
-        finally:
-            quit = self.homePage.quit_from_system()
-            assert quit
+    # def test_fact_of_MEE(self):
+    #     try:
+    #         self.loginPage = LoginPage(self.driver)
+    #         homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+    #         homePage.follow_election()
+    #         self.homePage = HomePage(self.driver)
+    #         electionsPage = self.homePage.follow_election()
+    #         electionsPage.elect_overall()
+    #         electionsPage.reset_set()
+    #
+    #         electionsPage.send_num_selection(TestData.NUM_SELECTION_1885)
+    #         time.sleep(1)
+    #
+    #         electionsPage.open_elect_1885()
+    #         electionsPage.follow_third_step()
+    #         electionsPage.open_bid_1886()
+    #         time.sleep(1)
+    #         element = self.driver.find_element_by_css_selector(".vc-vt-row_green")
+    #         if element.is_displayed():
+    #             proof_1 = electionsPage.box_put_fact_MEE(TestData.ALLERT_FACT_CANCEL)
+    #             electionsPage.close_allert()
+    #             proof_2 = electionsPage.box_cancel_fact_MEE(TestData.ALLERT_FACT_PUT)
+    #         else:
+    #             proof_1 = electionsPage.box_put_fact_MEE(TestData.ALLERT_FACT_PUT)
+    #             electionsPage.close_allert()
+    #             time.sleep(1)
+    #             proof_2 = electionsPage.box_cancel_fact_MEE(TestData.ALLERT_FACT_CANCEL)
+    #         assert proof_1 == TestData.ALLERT_FACT_PUT
+    #         assert proof_2 == TestData.ALLERT_FACT_CANCEL
+    #         finally:
+    #         quit = self.homePage.quit_from_system()
+    #         assert quit
 
 

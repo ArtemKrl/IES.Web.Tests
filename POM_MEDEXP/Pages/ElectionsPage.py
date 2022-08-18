@@ -106,6 +106,7 @@ class ElectionsPage(BasePage):
     PUT_CANCEL_FACT_MEE = (By.CSS_SELECTOR, ".vc-rfef-tabsWrapper > div:nth-child(2) > div > div:nth-child(1) > button")
     CLOSE_ALLERT = (By.CSS_SELECTOR, "a > span > span")
     EXP_TITLE = (By.CSS_SELECTOR, ".vc-vt-hc-header-title")
+    NUMBER_IS_GREEN = (By.CSS_SELECTOR, ".vc-vt-row_green")
 
 
 
@@ -370,6 +371,9 @@ class ElectionsPage(BasePage):
         self.do_click(self.BOX_FOR_OPERATION_2)
         self.do_click(self.CANCEL_ELECT)
         return self.get_element_text(self.ALLERT_TEXT)
+
+    def check_color_num(self):
+        return self.is_visible(self.NUMBER_IS_GREEN)
 
 
 
