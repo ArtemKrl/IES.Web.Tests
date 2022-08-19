@@ -99,13 +99,10 @@ class Test_OverallPage(BaseTest):
             electionsPage = self.homePage.follow_election()
             electionsPage.elect_overall()
             electionsPage.send_num_selection(TestData.NUM_SELECTION_3770)
+            electionsPage.waiting_text_elem()
 
-            WebDriverWait(self.driver, 10).\
-                until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, '.vc-vt-summary-string'), 'Выделено 0 элементов из 1'))
-
-            # time.sleep(1)
             search_data = electionsPage.execute_search_num(TestData.NUM_SELECTION_3770)
-            assert TestData.NUM_SELECTION_3770 == search_data, 'Тест, который смог'
+            assert TestData.NUM_SELECTION_3770 == search_data
             electionsPage.reset_set()
         finally:
             quit = self.homePage.quit_from_system()

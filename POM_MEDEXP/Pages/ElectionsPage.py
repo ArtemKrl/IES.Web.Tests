@@ -107,7 +107,7 @@ class ElectionsPage(BasePage):
     CLOSE_ALLERT = (By.CSS_SELECTOR, "a > span > span")
     EXP_TITLE = (By.CSS_SELECTOR, ".vc-vt-hc-header-title")
     NUMBER_IS_GREEN = (By.CSS_SELECTOR, ".vc-vt-row_green")
-
+    MARK_ELEM = (By.CSS_SELECTOR, '.vc-vt-summary-string')
 
 
 
@@ -122,6 +122,8 @@ class ElectionsPage(BasePage):
     def check_text_heading(self, text):
         return self.get_element_text(self.HEADING_PAGE)
 
+    def waiting_text_elem(self):
+        self.check_element_text(self.MARK_ELEM, TestData.NOTIFY_SEARCH_NUM)
 
     def elect_overall(self):
         self.do_click(self.OVERALL_SELECTION)
