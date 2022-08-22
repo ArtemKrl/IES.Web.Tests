@@ -249,6 +249,7 @@ class Test_OverallPage(BaseTest):
             electionsPage = self.homePage.follow_election()
             electionsPage.elect_overall()
             # time.sleep(1)
+            electionsPage.check_element_text(electionsPage.MARK_ELEM, 'Выделено 0 элементов из')
 
             electionsPage.scroll_into_table()
 
