@@ -51,5 +51,6 @@ class TestData:
     ALLERT_FACT_PUT = "Факт проставлен"
     ALLERT_FACT_CANCEL = "Факт снят"
 
+    NOTIFY_COL_SET = "Настройка колонок"
 
 
