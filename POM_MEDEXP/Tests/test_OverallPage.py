@@ -156,8 +156,12 @@ class Test_OverallPage(BaseTest):
             electionsPage.open_col_set()
             electionsPage.multi_checked()
             proof = electionsPage.check_exp_column(TestData.EXP_TITLE)
-            # time.sleep(1)
+            electionsPage.see_set_column()
             electionsPage.open_col_set()
+            electionsPage.see_set_column()
+            electionsPage.ssc()
+
+
             electionsPage.multi_checked()
             assert proof == TestData.EXP_TITLE
 

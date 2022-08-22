@@ -1,5 +1,6 @@
 import time
 import random
+from selenium.webdriver.common.action_chains import ActionChains
 
 from POM_MEDEXP.Pages.DataFormPage import FormPage
 from POM_MEDEXP.Pages.BasePage import BasePage
@@ -71,7 +72,7 @@ class ElectionsPage(BasePage):
     COLUMN_SET = (By.CLASS_NAME, "column_settings")
     CHECKBOXES_COL_SET = (By.CSS_SELECTOR, ".ant-popover-inner > div > div > div > div > label > span > input")
 
-    BOX_1 = (By.CSS_SELECTOR, ".ant-popover-inner > div > div > div:nth-child(2) > div:nth-child(1) > label > span")
+    BOX_1 = (By.CSS_SELECTOR, ".ant-popover-inner > div > div > div:nth-child(2) > div:nth-child(1) > label")
     BOX_2 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(2) > label > span")
     BOX_3 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(3) > label > span")
     BOX_4 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(4) > label > span")
@@ -108,6 +109,8 @@ class ElectionsPage(BasePage):
     EXP_TITLE = (By.CSS_SELECTOR, ".vc-vt-hc-header-title")
     NUMBER_IS_GREEN = (By.CSS_SELECTOR, ".vc-vt-row_green")
     MARK_ELEM = (By.CSS_SELECTOR, '.vc-vt-summary-string')
+    SEE_COLUMN_NOTIFY = (By.CLASS_NAME, "ant-tooltip-inner")
+    SSC = (By.CSS_SELECTOR, "div > p")
 
 
 
@@ -283,6 +286,14 @@ class ElectionsPage(BasePage):
         self.do_click(self.BOX_6)
         self.do_click(self.BOX_7)
         self.do_click(self.BOX_8)
+        # self.do_click(self.BOX_7)
+        # self.do_click(self.BOX_6)
+        # self.do_click(self.BOX_5)
+        # self.do_click(self.BOX_4)
+        # self.do_click(self.BOX_3)
+        # self.do_click(self.BOX_1)
+
+
 
         self.do_click(self.SAVE_SET)
 
@@ -376,6 +387,16 @@ class ElectionsPage(BasePage):
 
     def check_color_num(self):
         return self.is_visible(self.NUMBER_IS_GREEN)
+
+    def see_set_column(self):
+        self.look_hidden_elem(self.COLUMN_SET)
+        self.check_element_text(self.SEE_COLUMN_NOTIFY, TestData.NOTIFY_COL_SET)
+
+    def ssc(self):
+        self.look_hidden_elem(self.SSC)
+        self.check_element_text(self.SSC, TestData.NOTIFY_COL_SET)
+
+
 
 
 
