@@ -5,12 +5,16 @@ from selenium.webdriver.common.action_chains import ActionChains
 from POM_MEDEXP.Pages.HomePage import HomePage
 from POM_MEDEXP.Pages.LoginPage import LoginPage
 from POM_MEDEXP.Tests.test_base import BaseTest
+from POM_MEDEXP.Pages.BasePage import BasePage
 
 from POM_MEDEXP.Config.config import TestData
 from POM_MEDEXP.Pages.DataFormPage import *
 from POM_MEDEXP.Pages.ElectionsPage import *
 from POM_MEDEXP.Pages.OverallPage import *
 
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class Test_OverallPage(BaseTest):
 
@@ -96,7 +100,8 @@ class Test_OverallPage(BaseTest):
             electionsPage = self.homePage.follow_election()
             electionsPage.elect_overall()
             electionsPage.send_num_selection(TestData.NUM_SELECTION_3770)
-            time.sleep(1)
+            electionsPage.waiting_text_elem()
+
             search_data = electionsPage.execute_search_num(TestData.NUM_SELECTION_3770)
             assert TestData.NUM_SELECTION_3770 == search_data
             electionsPage.reset_set()
@@ -150,10 +155,13 @@ class Test_OverallPage(BaseTest):
             electionsPage = self.homePage.follow_election()
             electionsPage.elect_overall()
             electionsPage.open_col_set()
+            electionsPage.chch()
             electionsPage.multi_checked()
             proof = electionsPage.check_exp_column(TestData.EXP_TITLE)
-            time.sleep(1)
+            electionsPage.see_set_column()
             electionsPage.open_col_set()
+            electionsPage.see_set_column()
+            electionsPage.ne_rabotaet()
             electionsPage.multi_checked()
             assert proof == TestData.EXP_TITLE
 
@@ -170,11 +178,11 @@ class Test_OverallPage(BaseTest):
             electionsPage = self.homePage.follow_election()
             electionsPage.elect_overall()
             electionsPage.open_col_set()
-            time.sleep(1)
+            # time.sleep(1)
             electionsPage.selective_checked()
-            time.sleep(2)
+            # time.sleep(2)
             electionsPage.selective_checked()
-            time.sleep(1)
+            # time.sleep(1)
         finally:
             quit = self.homePage.quit_from_system()
             assert quit
@@ -240,7 +248,8 @@ class Test_OverallPage(BaseTest):
             self.homePage = HomePage(self.driver)
             electionsPage = self.homePage.follow_election()
             electionsPage.elect_overall()
-            time.sleep(1)
+            # time.sleep(1)
+            electionsPage.check_element_text(electionsPage.MARK_ELEM, 'Выделено 0 элементов из')
 
             electionsPage.scroll_into_table()
 
@@ -252,7 +261,7 @@ class Test_OverallPage(BaseTest):
             electionsPage.choice_new_checkbox()
 
             electionsPage.check_cancel_box()
-            time.sleep(2)
+            # time.sleep(2)
 
             proof_2 = electionsPage.check_cancel_box()
             assert proof_1

@@ -15,6 +15,8 @@ class TestData:
     EXAMPLE_NUM_GOOD = "134.2"
     EXAMPLE_NUM_BAD = "666.66"
 
+    NOTIFY_SEARCH_NUM = 'Выделено 0 элементов из 1'
+
     LOGIN_PAGE_TITLE = 'Медэксперт'
     HOME_PAGE_TITLE = 'Медэксперт'
     EXP_TITLE = "Вид экспертизы"
@@ -49,5 +51,6 @@ class TestData:
     ALLERT_FACT_PUT = "Факт проставлен"
     ALLERT_FACT_CANCEL = "Факт снят"
 
+    NOTIFY_COL_SET = "Настройка колонок"
 
 
