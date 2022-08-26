@@ -146,28 +146,31 @@ class Test_OverallPage(BaseTest):
             assert quit
 
 
-    def test_setting_сolumn(self):
-        try:
-            self.loginPage = LoginPage(self.driver)
-            homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-            homePage.follow_election()
-            self.homePage = HomePage(self.driver)
-            electionsPage = self.homePage.follow_election()
-            electionsPage.elect_overall()
-            electionsPage.open_col_set()
-            electionsPage.chch()
-            electionsPage.multi_checked()
-            proof = electionsPage.check_exp_column(TestData.EXP_TITLE)
-            electionsPage.see_set_column()
-            electionsPage.open_col_set()
-            electionsPage.see_set_column()
-            electionsPage.ne_rabotaet()
-            electionsPage.multi_checked()
-            assert proof == TestData.EXP_TITLE
-
-        finally:
-            quit = self.homePage.quit_from_system()
-            assert quit
+    # def test_setting_сolumn(self):
+    #     try:
+    #         self.loginPage = LoginPage(self.driver)
+    #         homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+    #         homePage.follow_election()
+    #         self.homePage = HomePage(self.driver)
+    #         electionsPage = self.homePage.follow_election()
+    #         electionsPage.elect_overall()
+    #         electionsPage.open_col_set()
+    #         electionsPage.chch()
+    #         electionsPage.multi_checked()
+    #         proof = electionsPage.check_exp_column(TestData.EXP_TITLE)
+    #         electionsPage.see_set_column()
+    #         electionsPage.open_col_set()
+    #         electionsPage.see_set_column()
+    #         electionsPage.ne_rabotaet()
+    #         electionsPage.multi_checked()
+    #         time.sleep(2)
+    #         electionsPage.reset_set()
+    #
+    #         assert proof == TestData.EXP_TITLE
+    #
+    #     finally:
+    #         quit = self.homePage.quit_from_system()
+    #         assert quit
 
     def test_checkbox_setting_сolumn(self):
         try:
