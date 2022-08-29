@@ -121,10 +121,10 @@ class FormPage(BasePage):
         self.do_click(self.BIT_ITEM_3)
 
     def check_bit_item(self):
-        return self.is_visible(self.ITEM_IN_FORM_0)
-        return self.is_visible(self.ITEM_IN_FORM_1)
-        return self.is_visible(self.ITEM_IN_FORM_2)
-        return self.is_visible(self.ITEM_IN_FORM_3)
+        if self.is_visible(self.ITEM_IN_FORM_0):
+            if self.is_visible(self.ITEM_IN_FORM_1):
+                if self.is_visible(self.ITEM_IN_FORM_2):
+                    return self.is_visible(self.ITEM_IN_FORM_3)
 
     def push_btn_download(self):
         return self.is_clickable(self.DOWNLOAD_BUTTON)

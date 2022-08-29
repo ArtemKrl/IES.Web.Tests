@@ -110,6 +110,7 @@ class Test_DataForm(BaseTest):
             formPage = self.homePage.elect_DFS()
             formPage.elect_bit_item()
             proof = formPage.check_bit_item()
+            assert proof == True
         finally:
             quit = self.homePage.quit_from_system()
             assert quit
