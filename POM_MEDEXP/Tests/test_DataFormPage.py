@@ -1,11 +1,11 @@
 import time
 
-from POM_MEDEXP.Pages.HomePage import HomePage
-from POM_MEDEXP.Pages.LoginPage import LoginPage
-from POM_MEDEXP.Tests.test_base import BaseTest
+from HomePage import HomePage
+from LoginPage import LoginPage
+from test_base import BaseTest
 
-from POM_MEDEXP.Config.config import TestData
-from POM_MEDEXP.Pages.DataFormPage import *
+from config import TestData
+from DataFormPage import *
 
 
 class Test_DataForm(BaseTest):
@@ -110,6 +110,7 @@ class Test_DataForm(BaseTest):
             formPage = self.homePage.elect_DFS()
             formPage.elect_bit_item()
             proof = formPage.check_bit_item()
+            assert proof == True
         finally:
             quit = self.homePage.quit_from_system()
             assert quit

@@ -1,6 +1,6 @@
 import time
-from POM_MEDEXP.Pages.DataFormPage import FormPage
-from POM_MEDEXP.Pages.BasePage import BasePage
+from DataFormPage import FormPage
+from BasePage import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 

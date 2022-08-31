@@ -1,10 +1,13 @@
 import pytest
+# import sys
+# sys.path.append('C:/Users/Artem.Korol/IES.Web.Tests/POM_MEDEXP/Config')
+
 from selenium import webdriver
-from POM_MEDEXP.Config.config import TestData
+from config import TestData
 from selenium.webdriver.chrome.webdriver import WebDriver
 
-from POM_MEDEXP.Config.capabilities import capabilities
-from POM_MEDEXP.Config.config import selenoid_URL
+from capabilities import capabilities
+from config import selenoid_URL
 
 @pytest.fixture(params=["chrome"], scope='class')
 def init_driver(request):

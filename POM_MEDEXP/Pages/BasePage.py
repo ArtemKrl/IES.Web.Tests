@@ -67,6 +67,7 @@ class BasePage:
         actionChains = ActionChains(self.driver)
         actionChains.move_to_element(element).perform()
 
+<<<<<<< HEAD
     def wait_for_element_to_vanish(self, by_locator) -> bool:
         is_displayed = by_locator.is_displayed()
         start_time = self.get_current_time_in_mellis()
@@ -75,3 +76,5 @@ class BasePage:
             is_displayed = by_locator.is_displayed()
 
         return not is_displayed
+=======
+>>>>>>> without_timeSleep

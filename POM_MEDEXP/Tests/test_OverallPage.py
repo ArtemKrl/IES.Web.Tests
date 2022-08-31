@@ -2,15 +2,21 @@ import time
 
 from selenium.webdriver.common.action_chains import ActionChains
 
+<<<<<<< HEAD
 from POM_MEDEXP.Pages.HomePage import HomePage
 from POM_MEDEXP.Pages.LoginPage import LoginPage
 from POM_MEDEXP.Tests.test_base import BaseTest
 from POM_MEDEXP.Pages.BasePage import BasePage
+=======
+from HomePage import HomePage
+from LoginPage import LoginPage
+from test_base import BaseTest
+>>>>>>> without_timeSleep
 
-from POM_MEDEXP.Config.config import TestData
-from POM_MEDEXP.Pages.DataFormPage import *
-from POM_MEDEXP.Pages.ElectionsPage import *
-from POM_MEDEXP.Pages.OverallPage import *
+from config import TestData
+from DataFormPage import *
+from ElectionsPage import *
+from OverallPage import *
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -155,17 +161,27 @@ class Test_OverallPage(BaseTest):
     #         electionsPage = self.homePage.follow_election()
     #         electionsPage.elect_overall()
     #         electionsPage.open_col_set()
+<<<<<<< HEAD
     #         electionsPage.chch()
+=======
+>>>>>>> without_timeSleep
     #         electionsPage.multi_checked()
     #         proof = electionsPage.check_exp_column(TestData.EXP_TITLE)
     #         electionsPage.see_set_column()
     #         electionsPage.open_col_set()
     #         electionsPage.see_set_column()
+<<<<<<< HEAD
     #         electionsPage.ne_rabotaet()
     #         electionsPage.multi_checked()
     #         time.sleep(2)
     #         electionsPage.reset_set()
     #
+=======
+    #         electionsPage.ssc()
+    #
+    #
+    #         electionsPage.multi_checked()
+>>>>>>> without_timeSleep
     #         assert proof == TestData.EXP_TITLE
     #
     #     finally:
@@ -251,7 +267,11 @@ class Test_OverallPage(BaseTest):
             self.homePage = HomePage(self.driver)
             electionsPage = self.homePage.follow_election()
             electionsPage.elect_overall()
+<<<<<<< HEAD
             # time.sleep(1)
+=======
+            time.sleep(1)
+>>>>>>> without_timeSleep
             electionsPage.check_element_text(electionsPage.MARK_ELEM, 'Выделено 0 элементов из')
 
             electionsPage.scroll_into_table()
@@ -283,7 +303,7 @@ class Test_OverallPage(BaseTest):
             electionsPage.elect_overall()
             time.sleep(1)
             electionsPage.send_num_selection(TestData.NUM_SELECTION_3770)
-            time.sleep(2)
+            electionsPage.waiting_text_elem()
             electionsPage.open_elect_3770()
             electionsPage.follow_two_step()
             electionsPage.open_atyashev()

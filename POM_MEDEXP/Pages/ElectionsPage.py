@@ -2,11 +2,11 @@ import time
 import random
 from selenium.webdriver.common.action_chains import ActionChains
 
-from POM_MEDEXP.Pages.DataFormPage import FormPage
-from POM_MEDEXP.Pages.BasePage import BasePage
+from DataFormPage import FormPage
+from BasePage import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from POM_MEDEXP.Config.config import TestData
+from config import TestData
 
 
 
@@ -72,7 +72,11 @@ class ElectionsPage(BasePage):
     COLUMN_SET = (By.CLASS_NAME, "column_settings")
     CHECKBOXES_COL_SET = (By.CSS_SELECTOR, ".ant-popover-inner > div > div > div > div > label > span > input")
 
+<<<<<<< HEAD
     BOX_1 = (By.CSS_SELECTOR, "div:nth-child(1) > label:nth-child(2)")
+=======
+    BOX_1 = (By.CSS_SELECTOR, ".ant-popover-inner > div > div > div:nth-child(2) > div:nth-child(1) > label")
+>>>>>>> without_timeSleep
     BOX_2 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(2) > label > span")
     BOX_3 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(3) > label > span")
     BOX_4 = (By.CSS_SELECTOR, "div > div > div > div:nth-child(4) > label > span")
