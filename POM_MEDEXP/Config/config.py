@@ -2,8 +2,8 @@ from selenium.webdriver.common.by import By
 
 selenoid_URL = "http://selenoid:4444/wd/hub"
 
-
 class TestData:
+
     CHROME_EXECUTABLE_PATH = "/Users/Artem.Korol/Desktop/Selenium/geckodriver.exe"
     FIREFOX_EXECUTABLE_PATH = "/Users/Artem.Korol/Desktop/Selenium"
 
@@ -52,5 +52,6 @@ class TestData:
     ALLERT_FACT_CANCEL = "Факт снят"
 
     NOTIFY_COL_SET = "Настройка колонок"
+
 
 

@@ -1,11 +1,11 @@
 import time
-from POM_MEDEXP.Pages.BasePage import BasePage
+from BasePage import BasePage
 from selenium.webdriver.common.by import By
 import time
-from POM_MEDEXP.Config.config import TestData
-from POM_MEDEXP.Pages.BasePage import BasePage
+from config import TestData
+from BasePage import BasePage
 from selenium.webdriver.common.by import By
-from POM_MEDEXP.Tests.test_base import BaseTest
+from test_base import BaseTest
 
 
 class FormPage(BasePage):

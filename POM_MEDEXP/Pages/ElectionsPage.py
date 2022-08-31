@@ -2,11 +2,11 @@ import time
 import random
 from selenium.webdriver.common.action_chains import ActionChains
 
-from POM_MEDEXP.Pages.DataFormPage import FormPage
-from POM_MEDEXP.Pages.BasePage import BasePage
+from DataFormPage import FormPage
+from BasePage import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from POM_MEDEXP.Config.config import TestData
+from config import TestData
 
 
 
