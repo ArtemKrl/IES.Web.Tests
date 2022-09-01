@@ -1,10 +1,10 @@
 import time
 
-from LoginPage import LoginPage
-from test_base import BaseTest
+from Pages.LoginPage import LoginPage
+from Tests.test_base import BaseTest
 
-from config import TestData
-from HomePage import HomePage
+from Config.config import TestData
+from Pages.HomePage import HomePage
 
 
 class Test_Home(BaseTest):

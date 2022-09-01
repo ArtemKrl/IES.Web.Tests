@@ -1,8 +1,8 @@
-import time
-from DataFormPage import FormPage
-from BasePage import BasePage
+# import time
+# from Pages.DataFormPage import FormPage
+from Pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
+# from selenium.webdriver.support import expected_conditions as EC
 
 
 

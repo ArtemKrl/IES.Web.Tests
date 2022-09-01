@@ -1,26 +1,23 @@
-import time
+# import time
+#
+# from selenium.webdriver.common.action_chains import ActionChains
+#
+# from Pages.HomePage import HomePage
+# from Pages.LoginPage import LoginPage
+# from Tests.test_base import BaseTest
+# from Pages.BasePage import BasePage
+from Pages.HomePage import HomePage
+from Pages.LoginPage import LoginPage
+from Tests.test_base import BaseTest
 
-from selenium.webdriver.common.action_chains import ActionChains
-
-<<<<<<< HEAD
-from POM_MEDEXP.Pages.HomePage import HomePage
-from POM_MEDEXP.Pages.LoginPage import LoginPage
-from POM_MEDEXP.Tests.test_base import BaseTest
-from POM_MEDEXP.Pages.BasePage import BasePage
-=======
-from HomePage import HomePage
-from LoginPage import LoginPage
-from test_base import BaseTest
->>>>>>> without_timeSleep
-
-from config import TestData
-from DataFormPage import *
-from ElectionsPage import *
-from OverallPage import *
-
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+# from Config.config import TestData
+# from Pages.DataFormPage import *
+from Pages.ElectionsPage import *
+from Pages.OverallPage import *
+#
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
 
 class Test_OverallPage(BaseTest):
 
@@ -161,27 +158,23 @@ class Test_OverallPage(BaseTest):
     #         electionsPage = self.homePage.follow_election()
     #         electionsPage.elect_overall()
     #         electionsPage.open_col_set()
-<<<<<<< HEAD
     #         electionsPage.chch()
-=======
->>>>>>> without_timeSleep
+
     #         electionsPage.multi_checked()
     #         proof = electionsPage.check_exp_column(TestData.EXP_TITLE)
     #         electionsPage.see_set_column()
     #         electionsPage.open_col_set()
     #         electionsPage.see_set_column()
-<<<<<<< HEAD
+
     #         electionsPage.ne_rabotaet()
     #         electionsPage.multi_checked()
     #         time.sleep(2)
     #         electionsPage.reset_set()
     #
-=======
     #         electionsPage.ssc()
     #
     #
     #         electionsPage.multi_checked()
->>>>>>> without_timeSleep
     #         assert proof == TestData.EXP_TITLE
     #
     #     finally:
@@ -267,11 +260,8 @@ class Test_OverallPage(BaseTest):
             self.homePage = HomePage(self.driver)
             electionsPage = self.homePage.follow_election()
             electionsPage.elect_overall()
-<<<<<<< HEAD
             # time.sleep(1)
-=======
             time.sleep(1)
->>>>>>> without_timeSleep
             electionsPage.check_element_text(electionsPage.MARK_ELEM, 'Выделено 0 элементов из')
 
             electionsPage.scroll_into_table()
@@ -293,29 +283,29 @@ class Test_OverallPage(BaseTest):
             quit = self.homePage.quit_from_system()
             assert quit
 
-    def test_create_cancel_election(self):
-        try:
-            self.loginPage = LoginPage(self.driver)
-            homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
-            homePage.follow_election()
-            self.homePage = HomePage(self.driver)
-            electionsPage = self.homePage.follow_election()
-            electionsPage.elect_overall()
-            time.sleep(1)
-            electionsPage.send_num_selection(TestData.NUM_SELECTION_3770)
-            electionsPage.waiting_text_elem()
-            electionsPage.open_elect_3770()
-            electionsPage.follow_two_step()
-            electionsPage.open_atyashev()
-            electionsPage.open_all_cases()
-            proof_1 = electionsPage.choice_box_for_election(TestData.GOOD_ALLERT_TEXT_ELECT)
-            electionsPage.close_allert()
-            proof_2 = electionsPage.choice_box_for_cancel(TestData.BAD_ALLERT_TEXT_ELECT)
-            assert proof_1 == TestData.GOOD_ALLERT_TEXT_ELECT
-            assert proof_2 == TestData.BAD_ALLERT_TEXT_ELECT
-        finally:
-            quit = self.homePage.quit_from_system()
-            assert quit
+    # def test_create_cancel_election(self):
+    #     try:
+    #         self.loginPage = LoginPage(self.driver)
+    #         homePage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+    #         homePage.follow_election()
+    #         self.homePage = HomePage(self.driver)
+    #         electionsPage = self.homePage.follow_election()
+    #         electionsPage.elect_overall()
+    #         time.sleep(1)
+    #         electionsPage.send_num_selection(TestData.NUM_SELECTION_3770)
+    #         electionsPage.waiting_text_elem()
+    #         electionsPage.open_elect_3770()
+    #         electionsPage.follow_two_step()
+    #         electionsPage.open_atyashev()
+    #         electionsPage.open_all_cases()
+    #         proof_1 = electionsPage.choice_box_for_election(TestData.GOOD_ALLERT_TEXT_ELECT)
+    #         electionsPage.close_allert()
+    #         proof_2 = electionsPage.choice_box_for_cancel(TestData.BAD_ALLERT_TEXT_ELECT)
+    #         assert proof_1 == TestData.GOOD_ALLERT_TEXT_ELECT
+    #         assert proof_2 == TestData.BAD_ALLERT_TEXT_ELECT
+    #     finally:
+    #         quit = self.homePage.quit_from_system()
+    #         assert quit
 
     # def test_fact_of_MEE(self):
     #     try:

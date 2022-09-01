@@ -1,17 +1,8 @@
+
 import time
-from BasePage import BasePage
+
+from Pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
-import time
-<<<<<<< HEAD
-from array import *
-from POM_MEDEXP.Config.config import TestData
-from POM_MEDEXP.Pages.BasePage import BasePage
-=======
-from config import TestData
-from BasePage import BasePage
->>>>>>> without_timeSleep
-from selenium.webdriver.common.by import By
-from test_base import BaseTest
 
 
 class FormPage(BasePage):
@@ -127,15 +118,10 @@ class FormPage(BasePage):
         self.do_click(self.BIT_ITEM_3)
 
     def check_bit_item(self):
-<<<<<<< HEAD
-        return self.is_visible(self.ITEM_IN_FORM_0), self.is_visible(self.ITEM_IN_FORM_1), self.is_visible(self.ITEM_IN_FORM_2), self.is_visible(self.ITEM_IN_FORM_3)
-
-=======
         if self.is_visible(self.ITEM_IN_FORM_0):
             if self.is_visible(self.ITEM_IN_FORM_1):
                 if self.is_visible(self.ITEM_IN_FORM_2):
                     return self.is_visible(self.ITEM_IN_FORM_3)
->>>>>>> without_timeSleep
 
     def push_btn_download(self):
         return self.is_clickable(self.DOWNLOAD_BUTTON)

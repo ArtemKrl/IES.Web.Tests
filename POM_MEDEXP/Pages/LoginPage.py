@@ -1,14 +1,14 @@
-import pytest
+# import pytest
 from selenium.webdriver.common.by import By
-import time
-from config import selenoid_URL
-from selenium import webdriver
-from capabilities import capabilities
-import pytest
-from DataFormPage import FormPage
-from config import TestData
-from BasePage import BasePage
-from HomePage import HomePage
+# import time
+# from Config.config import selenoid_URL
+# from selenium import webdriver
+# from Config.capabilities import capabilities
+# import pytest
+# from DataFormPage import FormPage
+from Config.config import TestData
+from Pages.BasePage import BasePage
+from Pages.HomePage import HomePage
 
 
 class LoginPage(BasePage):

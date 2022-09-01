@@ -1,11 +1,11 @@
-import time
+# import time
 
-from HomePage import HomePage
-from LoginPage import LoginPage
-from test_base import BaseTest
+from Pages.HomePage import HomePage
+from Pages.LoginPage import LoginPage
+from Tests.test_base import BaseTest
 
-from config import TestData
-from DataFormPage import *
+from Config.config import TestData
+from Pages.DataFormPage import *
 
 
 class Test_DataForm(BaseTest):
