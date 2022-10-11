@@ -1,7 +1,7 @@
 
 import time
 
-from Pages.BasePage import BasePage
+from POM_MEDEXP.Pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
 
 

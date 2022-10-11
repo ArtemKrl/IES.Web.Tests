@@ -1,10 +1,10 @@
 import time
 
-from Pages.LoginPage import LoginPage
-from Tests.test_base import BaseTest
+from POM_MEDEXP.Pages.LoginPage import LoginPage
+from POM_MEDEXP.Tests.test_base import BaseTest
 
-from Config.config import TestData
-from Pages.HomePage import HomePage
+from POM_MEDEXP.Config.config import TestData
+from POM_MEDEXP.Pages.HomePage import HomePage
 
 
 class Test_Home(BaseTest):

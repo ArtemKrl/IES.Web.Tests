@@ -5,15 +5,15 @@
 # from Pages.HomePage import HomePage
 # from Pages.LoginPage import LoginPage
 # from Tests.test_base import BaseTest
-# from Pages.BasePage import BasePage
-from Pages.HomePage import HomePage
-from Pages.LoginPage import LoginPage
-from Tests.test_base import BaseTest
+from POM_MEDEXP.Pages.BasePage import BasePage
+from POM_MEDEXP.Pages.HomePage import HomePage
+from POM_MEDEXP.Pages.LoginPage import LoginPage
+from POM_MEDEXP.Tests.test_base import BaseTest
 
-# from Config.config import TestData
-# from Pages.DataFormPage import *
-from Pages.ElectionsPage import *
-from Pages.OverallPage import *
+from POM_MEDEXP.Config.config import TestData
+from POM_MEDEXP.Pages.DataFormPage import *
+from POM_MEDEXP.Pages.ElectionsPage import *
+from POM_MEDEXP.Pages.OverallPage import *
 #
 # from selenium.webdriver.common.by import By
 # from selenium.webdriver.support.ui import WebDriverWait

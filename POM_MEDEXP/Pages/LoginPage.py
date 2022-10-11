@@ -6,9 +6,9 @@ from selenium.webdriver.common.by import By
 # from Config.capabilities import capabilities
 # import pytest
 # from DataFormPage import FormPage
-from Config.config import TestData
-from Pages.BasePage import BasePage
-from Pages.HomePage import HomePage
+from POM_MEDEXP.Config.config import TestData
+from POM_MEDEXP.Pages.BasePage import BasePage
+from POM_MEDEXP.Pages.HomePage import HomePage
 
 
 class LoginPage(BasePage):
